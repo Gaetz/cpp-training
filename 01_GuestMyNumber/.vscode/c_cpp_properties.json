@@ -1,0 +1,13 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "browse.path": [
+                "/usr/local/include",
+                "${workspaceRoot}"
+            ],
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 2
+}
