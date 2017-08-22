@@ -64,6 +64,21 @@ int main(int argc, char *argv[])
     ++score;    
     cout << "score: " << score << endl;
 
+    // Consts
+    const int ALIEN_POINTS = 150;
+    killedAliens = 10;
+    score = killedAliens * ALIEN_POINTS;
+    cout << "\nscore: " << score << endl;
+    
+    enum Difficulty {EASY, NORMAL, HARD, GODLIKE};
+    Difficulty myDifficulty = EASY;
+
+    enum ShipCost {FIGHTER_COST = 25, BOMBER_COST, CRUISER_COST = 100}; // BOMBER_COST is equal to 26 by default
+    ShipCost myShipCost = BOMBER_COST;
+    cout << "Upgrade ship to Cruiser will cost " << (CRUISER_COST - myShipCost) << " ressource points." << endl;
+
+
+
     // End of program
     char end;
     cout << "Enter a char to end >> ";
