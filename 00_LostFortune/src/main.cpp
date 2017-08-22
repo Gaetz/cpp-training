@@ -2,17 +2,43 @@
 
 using std::cout;
 using std::endl;
+using std::cin;
 
 int main(int argc, char *argv[])
 {
-    cout << "7 + 3 = " << 7 + 3 << endl;
-    cout << "7 - 3 = " << 7 - 3 << endl;
-    cout << "7 * 3 = " << 7 * 3 << endl;
-    cout << "7 / 3 = " << 7 / 3 << endl;
-    cout << "7.0 / 3.0 = " << 7.0 / 3.0 << endl;
-    cout << "7 % 3 = " << 7 % 3 << endl;
-    cout << "7 + 3 * 5 = " << 7 + 3 * 5 << endl;
-    cout << "(7 + 3) * 5 = " << (7 + 3) * 5 << endl;
+    int score;
+    double distance;
+    char playAgain;
+    bool areShieldsUp;
+    short lives, killedAliens;
+
+    score = 0;
+    distance = 1200.76;
+    playAgain = 'y';
+    areShieldsUp = true;
+    lives = 3;
+    killedAliens = 10;
+    double engineTemp = 5438.216;
+
+    cout << "\nscore: " << score << endl;
+    cout << "distance: " << distance << endl;
+    cout << "playAgain: " << playAgain << endl;
+    cout << "lives: " << lives << endl;
+    cout << "killedAliens: " << killedAliens << endl;
+    cout << "engineTemp: " << engineTemp << endl;
+
+    int fuel;
+    cout << "How much fuel? ";
+    cin >> fuel;
+    cout << "fuel: " << fuel << endl;
+
+    typedef unsigned short int ushort;
+    ushort bonus = 10;
+    cout << "bonus: " << bonus << endl;    
+    
+    char end;
+    cout << "Enter a char to end";
+    cin >> end;
 
     return 0;
 }
