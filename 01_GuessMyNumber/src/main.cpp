@@ -4,7 +4,7 @@ using std::cout;
 using std::endl;
 using std::cin;
 
-int main(int argc, char *argv[])
+int mainNotNow(int argc, char *argv[])
 {
 
     // End of program
