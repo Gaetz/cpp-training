@@ -9,7 +9,7 @@ using std::rand;
 using std::srand;
 using std::time;
 
-int main() {
+int mainDiceRoller() {
     // Random seed
     srand(static_cast<unsigned int>(time(0)));
     // Game loop
