@@ -11,16 +11,7 @@ using std::time;
 
 
 void setup() {
-    
-}
-
-bool update() {
-
-    return false;
-}
-
-void draw() {
-
+    cout << "|)> Guess my Number <(|\n" << endl;
 }
 
 void shutDown() {
@@ -30,12 +21,16 @@ void shutDown() {
 int main(int argc, char *argv[])
 {
     bool isGameOver = false;
+    int secretNumber = ;
+    int tries;
+    int guess;
 
+    srand(static_cast<unsigned int>(time(0)));
 
     setup();
     while(!isGameOver) {
-        isGameOver = update();
-        draw();
+        
+        
     }
     shutDown();
     
