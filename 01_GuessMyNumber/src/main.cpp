@@ -1,24 +1,17 @@
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 using std::cout;
 using std::endl;
 using std::cin;
+using std::rand;
+using std::srand;
+using std::time;
 
-int main(int argc, char *argv[])
-{
-    bool isGameOver = false;
-    setup();
-    while(!isGameOver) {
-        isGameOver = update();
-        draw();
-    }
-    shutDown();
-    
-    return 0;
-}
 
 void setup() {
-
+    
 }
 
 bool update() {
@@ -31,5 +24,20 @@ void draw() {
 }
 
 void shutDown() {
+
+}
+
+int main(int argc, char *argv[])
+{
+    bool isGameOver = false;
+
+
+    setup();
+    while(!isGameOver) {
+        isGameOver = update();
+        draw();
+    }
+    shutDown();
     
+    return 0;
 }
