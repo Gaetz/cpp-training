@@ -146,14 +146,23 @@ xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets" /i
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Color.h" />
+    <ClCompile Include="Drawable.cpp" />
+    <ClCompile Include="DrawableRect.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\tile.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Drawable.h" />
+    <ClInclude Include="DrawableRect.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Rect.h" />
+    <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

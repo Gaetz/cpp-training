@@ -29,6 +29,8 @@ void Game::load(SDL_Renderer& renderer)
 	rect->y = 100;
 	rect->w = 20;
 	rect->h = 20;
+
+	shape = DrawableRect(Vector2(200, 200), 50, 50, Color(20, 150, 200, 255));
 }
 
 void Game::update(float dt)
@@ -39,5 +41,6 @@ void Game::draw(SDL_Renderer& renderer)
 {
 	SDL_RenderClear(&renderer);
 	SDL_RenderCopy(&renderer, texture, nullptr, rect);
+	shape.draw(renderer);
 	SDL_RenderPresent(&renderer);
 }
