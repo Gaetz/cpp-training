@@ -146,6 +146,7 @@ xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets" /i
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Color.h" />
     <ClCompile Include="Drawable.cpp" />
     <ClCompile Include="DrawableCircle.cpp" />
@@ -159,6 +160,7 @@ xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets" /i
     <Image Include="assets\tile.png" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ball.h" />
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="DrawableCircle.h" />
     <ClInclude Include="DrawableRect.h" />

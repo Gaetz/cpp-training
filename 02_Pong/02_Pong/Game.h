@@ -1,7 +1,7 @@
 #pragma once
 #include <SDL.h> 
 #include "DrawableRect.h"
-#include "DrawableCircle.h"
+#include "Ball.h"
 
 class Game
 {
@@ -14,9 +14,9 @@ public:
 	void draw(SDL_Renderer& renderer);
 
 private:
-	SDL_Texture* texture;
-	SDL_Rect * rect;
-	DrawableRect shape;
-	DrawableCircle circle;
+	//SDL_Texture* texture;
+	//SDL_Rect * rect;
+	DrawableRect leftPaddle;
+	Ball ball;
 };
 

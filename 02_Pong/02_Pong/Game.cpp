@@ -10,9 +10,9 @@ Game::Game()
 
 Game::~Game()
 {
-	delete(rect);
-	SDL_DestroyTexture(texture);
-	texture = nullptr;
+	//delete(rect);
+	//SDL_DestroyTexture(texture);
+	//texture = nullptr;
 }
 
 void Game::load(SDL_Renderer& renderer)
@@ -32,24 +32,26 @@ void Game::load(SDL_Renderer& renderer)
 	rect->h = 20;
 	*/
 
-	Vector2 shapePosition = Vector2(200, 200);
-	Color shapeColor = Color(20, 150, 200, 255);
-	shape = DrawableRect(shapePosition, 50, 50, shapeColor);
+	leftPaddle = DrawableRect(Vector2(0, 200), 50, 50, Color());
 
-	Vector2 circlePosition = Vector2(400, 100);
-	Color circleColor = Color(200, 150, 50, 255);
-	circle = DrawableCircle(circlePosition, 20, 5, circleColor, true);
+	Vector2 ballPosition = Vector2(400, 400);
+	Vector2 ballSpeed = Vector2(1, 1);
+	ball = Ball(ballPosition, ballSpeed);
+
 }
 
 void Game::update(float dt)
 {
+	ball.update(dt);
 }
 
 void Game::draw(SDL_Renderer& renderer)
 {
 	SDL_RenderClear(&renderer);
-	SDL_RenderCopy(&renderer, texture, nullptr, rect);
-	shape.draw(renderer);
-	circle.draw(renderer);
+
+	//SDL_RenderCopy(&renderer, texture, nullptr, rect);
+	leftPaddle.draw(renderer);
+	ball.draw(renderer);
+
 	SDL_RenderPresent(&renderer);
 }

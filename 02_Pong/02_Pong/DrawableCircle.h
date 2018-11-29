@@ -4,7 +4,7 @@
 #include "Color.h"
 #include "Drawable.h"
 
-class DrawableCircle : Drawable
+class DrawableCircle : public Drawable
 {
 public:
 	DrawableCircle();
@@ -13,7 +13,7 @@ public:
 
 	void draw(SDL_Renderer& renderer);
 
-private:
+protected:
 	int _radius;
 	Color _color;
 	unsigned int _sides;
