@@ -4,6 +4,8 @@
 class Drawable
 {
 public:
+	Drawable();
+	Drawable(const Vector2& position);
 	virtual ~Drawable();
 
 	virtual void draw(SDL_Renderer& renderer) = 0;

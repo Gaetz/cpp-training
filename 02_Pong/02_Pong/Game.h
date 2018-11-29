@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h> 
 #include "DrawableRect.h"
+#include "DrawableCircle.h"
 
 class Game
 {
@@ -16,5 +17,6 @@ private:
 	SDL_Texture* texture;
 	SDL_Rect * rect;
 	DrawableRect shape;
+	DrawableCircle circle;
 };
 

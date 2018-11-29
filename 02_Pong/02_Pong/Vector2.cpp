@@ -1,4 +1,5 @@
 #include "Vector2.h"
+#include <math.h>
 
 Vector2::Vector2()
 {
@@ -16,6 +17,11 @@ Vector2::~Vector2()
 {
 }
 
+float Vector2::distance(Vector2 & other) const
+{
+	return static_cast<float>(sqrt(pow(_x - other.x(), 2) + pow(_y - other.y(), 2)));
+}
+
 Vector2 & Vector2::operator+=(const Vector2 & b)
 {
 	_x += b._x;
@@ -29,7 +35,7 @@ Vector2 operator+(Vector2 a, const Vector2 & b)
 	return a;
 }
 
-const int Vector2::x()
+int Vector2::x() const
 {
 	return _x;
 }
@@ -44,8 +50,8 @@ void Vector2::setX(const int x)
 	_x = x;
 }
 
-const int Vector2::y()
-{
+int Vector2::y() const
+{ 
 	return _y;
 }
 

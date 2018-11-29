@@ -1,19 +1,13 @@
 #include "DrawableRect.h"
 
-DrawableRect::DrawableRect()
+DrawableRect::DrawableRect(): Drawable(Vector2(0, 0)), _color(Color(255, 255, 255, 255))
 {
-	_position = Vector2();
-	_color.r = 255;
-	_color.g = 255;
-	_color.b = 255;
-	_color.a = 255;
+	_rect = Rect(0, 0, 1, 1);
 }
 
-DrawableRect::DrawableRect(const Vector2& position, int w, int h, Color color)
+DrawableRect::DrawableRect(const Vector2& position, int w, int h, const Color& color): Drawable(position), _color(color)
 {
-	_position = position;
 	_rect = Rect(0, 0, w, h);
-	_color = color;
 }
 
 

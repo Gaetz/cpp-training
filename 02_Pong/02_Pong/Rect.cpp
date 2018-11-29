@@ -30,7 +30,7 @@ std::unique_ptr<SDL_Rect> Rect::toSDLRect(Vector2 position)
 	return rect;
 }
 
-const int Rect::x()
+int Rect::x() const
 {
 	return _x;
 }
@@ -45,7 +45,7 @@ void Rect::setX(const int x)
 	_x = x;
 }
 
-const int Rect::y()
+int Rect::y() const
 {
 	return _y;
 }
@@ -60,7 +60,7 @@ void Rect::setY(const int y)
 	_y = y;
 }
 
-const int Rect::w()
+int Rect::w() const
 {
 	return _w;
 }
@@ -75,7 +75,7 @@ void Rect::setW(const int w)
 	_w = w;
 }
 
-const int Rect::h()
+int Rect::h() const
 {
 	return _h;
 }

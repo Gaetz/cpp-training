@@ -12,19 +12,19 @@ public:
 
 	std::unique_ptr<SDL_Rect> toSDLRect(Vector2 position);
 
-	const int x();
+	int x() const;
 	int& rx();
 	void setX(const int x);
 
-	const int y();
+	int y() const;
 	int& ry();
 	void setY(const int y);
 
-	const int w();
+	int w() const;
 	int& rw();
 	void setW(const int w);
 
-	const int h();
+	int h() const;
 	int& rh();
 	void setH(const int h);
 
