@@ -17,6 +17,6 @@ private:
 	//SDL_Texture* texture;
 	//SDL_Rect * rect;
 	DrawableRect leftPaddle;
-	Ball ball;
+	//Ball ball;
 };
 

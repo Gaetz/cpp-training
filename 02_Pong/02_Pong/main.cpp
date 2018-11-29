@@ -15,6 +15,14 @@ SDL_Renderer* renderer = nullptr;
 // Quit flag<
 bool quit = false;
 
+// Delta time
+const int FPS = 60;
+const int frameDelay = 1000 / FPS;
+int frameStart;
+int lastFrame = 0;
+int dt;
+int frameTime;
+
 // Event handler
 SDL_Event event;
 
@@ -35,6 +43,11 @@ int main(int argc, char* args[])
 	float dt = 0;
 	// Loop
 	while (!quit) {
+		// Delta time
+		frameStart = SDL_GetTicks();
+		dt = (frameStart - lastFrame) * 0.001;
+		lastFrame = frameStart;
+
 		// Update events
 		while (SDL_PollEvent(&event) != 0) {
 			// Program close
@@ -44,6 +57,12 @@ int main(int argc, char* args[])
 		}
 		game.update(dt);
 		game.draw(*renderer);
+
+		// Delay frame if game runs too fast
+		frameTime = SDL_GetTicks() - frameStart;
+		if (frameTime < frameDelay) {
+			SDL_Delay(frameDelay - frameTime);
+		}
 	}
 
 	// Close

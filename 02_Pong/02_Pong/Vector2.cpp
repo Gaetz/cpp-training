@@ -7,7 +7,7 @@ Vector2::Vector2()
 	_y = 0;
 }
 
-Vector2::Vector2(int x, int y)
+Vector2::Vector2(float x, float y)
 {
 	_x = x;
 	_y = y;
@@ -35,32 +35,37 @@ Vector2 operator+(Vector2 a, const Vector2 & b)
 	return a;
 }
 
-int Vector2::x() const
+Vector2 operator*(Vector2 a, const float mult)
+{
+	return Vector2(a._x * mult, a._y * mult);
+}
+
+float Vector2::x() const
 {
 	return _x;
 }
 
-int & Vector2::rx()
+float & Vector2::rx()
 {
 	return _x;
 }
 
-void Vector2::setX(const int x)
+void Vector2::setX(const float x)
 {
 	_x = x;
 }
 
-int Vector2::y() const
+float Vector2::y() const
 { 
 	return _y;
 }
 
-int & Vector2::ry()
+float & Vector2::ry()
 {
 	return _y;
 }
 
-void Vector2::setY(const int y)
+void Vector2::setY(const float y)
 {
 	_y = y;
 }

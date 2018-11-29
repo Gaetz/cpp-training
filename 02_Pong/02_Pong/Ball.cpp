@@ -14,14 +14,14 @@ Ball::~Ball()
 
 void Ball::update(float dt)
 {
-	_position += _speed;
+	_position += (_speed * dt);
 	if (_position.x() < 0) {
 		hBounce();
 		_position.setX(0);
 	}
 	if (_position.x() + _radius > 800) {
 		hBounce();
-		_position.setX(800 - _radius);
+		_position.setX(800.f - _radius);
 	}
 	if (_position.y() < 0) {
 		vBounce();
@@ -29,7 +29,7 @@ void Ball::update(float dt)
 	}
 	if (_position.y() + _radius > 600) {
 		vBounce();
-		_position.setY(600 - _radius);
+		_position.setY(600.f - _radius);
 	}
 }
 
