@@ -14,9 +14,7 @@ public:
 	void draw(SDL_Renderer& renderer);
 
 private:
-	//SDL_Texture* texture;
-	//SDL_Rect * rect;
 	DrawableRect leftPaddle;
-	//Ball ball;
+	Ball ball;
 };
 

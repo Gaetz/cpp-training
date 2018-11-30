@@ -19,5 +19,5 @@ void DrawableRect::draw(SDL_Renderer& renderer)
 {
 	SDL_SetRenderDrawColor(&renderer, _color.r, _color.g, _color.b, _color.a);
 	SDL_RenderFillRect(&renderer, _rect.toSDLRect(_position).get());
-	SDL_SetRenderDrawColor(&renderer, 0, 0, 0, 0);
+	SDL_SetRenderDrawColor(&renderer, 0, 0, 0, 255);
 }

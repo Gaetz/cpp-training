@@ -1,4 +1,5 @@
 #pragma once
+#include <SDL.h>
 
 struct Color
 {
@@ -16,8 +17,21 @@ struct Color
 		a = ap;
 	}
 
-	int r;
-	int g;
-	int b;
-	int a;
+	SDL_Color toSDLColor() {
+		SDL_Color c;
+		c.r = r;
+		c.g = g;
+		c.b = b;
+		c.a = a;
+		return c;
+	}
+
+	Uint32 toUint32() {
+		return ((r & 0xff) << 24) + ((g & 0xff) << 16) + ((b & 0xff) << 8) + (a & 0xff);
+	}
+
+	Uint8 r;
+	Uint8 g;
+	Uint8 b;
+	Uint8 a;
 };

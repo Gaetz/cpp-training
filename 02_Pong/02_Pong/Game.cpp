@@ -19,12 +19,12 @@ void Game::load(SDL_Renderer& renderer)
 
 	Vector2 ballPosition = Vector2(100, 100);
 	Vector2 ballSpeed = Vector2(250, 250);
-	//ball = Ball(ballPosition, ballSpeed);
+	ball = Ball(ballPosition, ballSpeed, renderer);
 }
 
 void Game::update(float dt)
 {
-	//ball.update(dt);
+	ball.update(dt);
 }
 
 void Game::draw(SDL_Renderer& renderer)
@@ -32,7 +32,7 @@ void Game::draw(SDL_Renderer& renderer)
 	SDL_RenderClear(&renderer);
 
 	leftPaddle.draw(renderer);
-	//ball.draw(renderer);
+	ball.draw(renderer);
 
 	SDL_RenderPresent(&renderer);
 }

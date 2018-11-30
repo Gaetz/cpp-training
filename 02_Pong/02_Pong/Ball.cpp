@@ -4,7 +4,7 @@ Ball::Ball()
 {
 }
 
-Ball::Ball(Vector2 & position, Vector2 & speed): DrawableCircle(position, 10, 0, Color(255, 0, 255, 255), true), _speed(speed)
+Ball::Ball(Vector2 & position, Vector2 & speed, SDL_Renderer& renderer): DrawableCircle(position, 10, Color(255, 255, 255, 255), renderer), _speed(speed)
 {
 }
 
@@ -19,26 +19,26 @@ void Ball::update(float dt)
 		hBounce();
 		_position.setX(0);
 	}
-	if (_position.x() + _radius > 800) {
+	if (_position.x() + _radius > 640.f) {
 		hBounce();
-		_position.setX(800.f - _radius);
+		_position.setX(640.f - _radius);
 	}
 	if (_position.y() < 0) {
 		vBounce();
 		_position.setY(0);
 	}
-	if (_position.y() + _radius > 600) {
+	if (_position.y() + _radius > 480.f) {
 		vBounce();
-		_position.setY(600.f - _radius);
+		_position.setY(480.f - _radius);
 	}
 }
 
 void Ball::vBounce()
 {
-	_speed.ry() = -_speed.y();
+	_speed.setY(-_speed.y());
 }
 
 void Ball::hBounce()
 {
-	_speed.rx() = -_speed.x();
+	_speed.setX(-_speed.x());
 }
