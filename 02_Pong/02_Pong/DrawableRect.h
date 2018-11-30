@@ -12,10 +12,6 @@ public:
 
 	void draw(SDL_Renderer& renderer);
 
-protected:
-	void loadSurface();
-	void loadTexture(SDL_Renderer & renderer);
-
 private:
 	Rect _rect;
 	Color _color;

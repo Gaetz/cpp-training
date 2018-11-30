@@ -12,10 +12,5 @@ public:
 
 protected:
 	Vector2 _position;
-	SDL_Surface* _surface;
-	SDL_Texture* _texture;
-
-	virtual void loadSurface() = 0;
-	virtual void loadTexture(SDL_Renderer& renderer) = 0;
 };
 
