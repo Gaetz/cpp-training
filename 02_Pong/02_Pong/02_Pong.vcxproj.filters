@@ -25,6 +25,12 @@
     <Filter Include="Fichiers sources\Utils">
       <UniqueIdentifier>{29eebeee-612b-45a9-85a3-cbabfa304656}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\Game">
+      <UniqueIdentifier>{4af77469-65b9-47fe-b39a-04b835dfd375}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Game">
+      <UniqueIdentifier>{49e189e6-87a0-4c9d-9ca9-4f53bf0862d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -51,8 +57,14 @@
     <ClCompile Include="Vector2.cpp">
       <Filter>Fichiers sources\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Fichiers sources\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Paddle.cpp">
+      <Filter>Fichiers sources\Game</Filter>
+    </ClCompile>
     <ClCompile Include="Ball.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -79,8 +91,14 @@
     <ClInclude Include="Rect.h">
       <Filter>Fichiers d%27en-tête\Utils</Filter>
     </ClInclude>
+    <ClInclude Include="Paddle.h">
+      <Filter>Fichiers d%27en-tête\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Fichiers d%27en-tête\Game</Filter>
+    </ClInclude>
     <ClInclude Include="Ball.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

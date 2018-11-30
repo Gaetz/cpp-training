@@ -23,8 +23,13 @@ void DrawableCircle::draw(SDL_Renderer & renderer)
 		double x = cx - dx;
 		float cy = _position.y();
 		SDL_SetRenderDrawColor(&renderer, _color.r, _color.g, _color.b, _color.a);
-		SDL_RenderDrawLine(&renderer, static_cast<int>(cx - dx), cy + dy - _radius, cx + dx, cy + dy - _radius);
-		SDL_RenderDrawLine(&renderer, cx - dx, cy - dy + _radius, cx + dx, cy - dy + _radius);
+		SDL_RenderDrawLine(&renderer, static_cast<int>(cx - dx), static_cast<int>(cy + dy - _radius), static_cast<int>(cx + dx), static_cast<int>(cy + dy - _radius));
+		SDL_RenderDrawLine(&renderer, static_cast<int>(cx - dx), static_cast<int>(cy - dy + _radius), static_cast<int>(cx + dx), static_cast<int>(cy - dy + _radius));
 		SDL_SetRenderDrawColor(&renderer, 0, 0, 0, 255);
 	}
+}
+
+int DrawableCircle::radius()
+{
+	return _radius;
 }

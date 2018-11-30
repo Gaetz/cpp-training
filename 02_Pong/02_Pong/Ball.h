@@ -1,9 +1,10 @@
 #pragma once
 #include "DrawableCircle.h"
+#include "GameObject.h"
+
 #include <SDL.h>
 
-class Ball :
-	public DrawableCircle
+class Ball: public GameObject
 {
 public:
 	Ball();
@@ -11,8 +12,10 @@ public:
 	virtual ~Ball();
 
 	void update(float dt);
+	void draw(SDL_Renderer& renderer);
 
 private:
+	DrawableCircle _graphics;
 	Vector2 _speed;
 	void vBounce();
 	void hBounce();

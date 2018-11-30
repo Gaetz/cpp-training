@@ -12,6 +12,7 @@ public:
 	virtual ~DrawableCircle();
 
 	void draw(SDL_Renderer& renderer);
+	int radius();
 
 protected:
 	int _radius;

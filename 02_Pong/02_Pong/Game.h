@@ -1,6 +1,6 @@
 #pragma once
 #include <SDL.h> 
-#include "DrawableRect.h"
+#include "Paddle.h"
 #include "Ball.h"
 
 class Game
@@ -14,7 +14,7 @@ public:
 	void draw(SDL_Renderer& renderer);
 
 private:
-	DrawableRect leftPaddle;
+	Paddle leftPaddle;
 	Ball ball;
 };
 

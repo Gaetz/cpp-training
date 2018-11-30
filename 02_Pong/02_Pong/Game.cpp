@@ -15,7 +15,7 @@ Game::~Game()
 
 void Game::load(SDL_Renderer& renderer)
 {
-	leftPaddle = DrawableRect(Vector2(0, 200), 50, 50, Color(), renderer);
+	leftPaddle = Paddle(Vector2(0, 200), Vector2(20, 100), renderer);
 
 	Vector2 ballPosition = Vector2(100, 100);
 	Vector2 ballSpeed = Vector2(250, 250);

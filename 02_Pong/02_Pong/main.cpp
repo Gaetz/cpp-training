@@ -45,7 +45,7 @@ int main(int argc, char* args[])
 	while (!quit) {
 		// Delta time
 		frameStart = SDL_GetTicks();
-		dt = (frameStart - lastFrame) * 0.001;
+		dt = (frameStart - lastFrame) * 0.001f;
 		lastFrame = frameStart;
 
 		// Update events

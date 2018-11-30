@@ -152,7 +152,9 @@ xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets" /i
     <ClCompile Include="DrawableCircle.cpp" />
     <ClCompile Include="DrawableRect.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="Rect.cpp" />
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
@@ -165,6 +167,8 @@ xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets" /i
     <ClInclude Include="DrawableCircle.h" />
     <ClInclude Include="DrawableRect.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Paddle.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
