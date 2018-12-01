@@ -4,9 +4,9 @@ Ball::Ball()
 {
 }
 
-Ball::Ball(Vector2 & position, Vector2 & speed, SDL_Renderer& renderer): GameObject(position), _speed(speed)
+Ball::Ball(Vector2 & position, Vector2 & speed, SDL_Renderer& renderer): GameObject(position), speed_(speed)
 {
-	_graphics = DrawableCircle(position, 10, Color(255, 255, 255, 255), renderer);
+	graphics_ = DrawableCircle(position, 10, Color(255, 255, 255, 255), renderer);
 }
 
 Ball::~Ball()
@@ -15,37 +15,38 @@ Ball::~Ball()
 
 void Ball::update(float dt)
 {
-	int radius = _graphics.radius();
-	_position += (_speed * dt);
-	_graphics.setPosition(_position);
-	if (_position.x() < 0) {
+	int radius = graphics_.radius();
+	position_ += (speed_ * dt);
+	graphics_.setPosition(position_);
+	// Bounces
+	if (position_.x() < 0) {
 		hBounce();
-		_position.setX(0);
+		position_.setX(0);
 	}
-	if (_position.x() + radius > 640.f) {
+	if (position_.x() + radius > 640.f) {
 		hBounce();
-		_position.setX(640.f - radius);
+		position_.setX(640.f - radius);
 	}
-	if (_position.y() < 0) {
+	if (position_.y() < 0) {
 		vBounce();
-		_position.setY(0);
+		position_.setY(0);
 	}
-	if (_position.y() + radius > 480.f) {
+	if (position_.y() + radius > 480.f) {
 		vBounce();
-		_position.setY(480.f - radius);
+		position_.setY(480.f - radius);
 	}
 }
 
 void Ball::vBounce()
 {
-	_speed.setY(-_speed.y());
+	speed_.setY(-speed_.y());
 }
 
 void Ball::hBounce()
 {
-	_speed.setX(-_speed.x());
+	speed_.setX(-speed_.x());
 }
 
 void Ball::draw(SDL_Renderer& renderer) {
-	_graphics.draw(renderer);
+	graphics_.draw(renderer);
 }

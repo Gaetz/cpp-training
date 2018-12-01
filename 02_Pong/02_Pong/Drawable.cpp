@@ -2,10 +2,10 @@
 
 Drawable::Drawable()
 {
-	_position = Vector2(0, 0);
+	position_ = Vector2(0, 0);
 }
 
-Drawable::Drawable(const Vector2 & position): _position(position)
+Drawable::Drawable(const Vector2 & position): position_(position)
 {
 }
 
@@ -15,6 +15,6 @@ Drawable::~Drawable()
 
 void Drawable::setPosition(Vector2 position)
 {
-	_position.setX(position.x());
-	_position.setY(position.y());
+	position_.setX(position.x());
+	position_.setY(position.y());
 }

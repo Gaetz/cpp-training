@@ -15,9 +15,9 @@ public:
 
 
 private:
-	Vector2 _position;
-	DrawableRect _graphics;
-	int _width;
-	int _height;
+	Vector2 position_;
+	DrawableRect graphics_;
+	int width_;
+	int height_;
 };
 

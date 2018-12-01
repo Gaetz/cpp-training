@@ -17,6 +17,6 @@ public:
 	virtual void draw(SDL_Renderer& renderer) = 0;
 
 protected:
-	Vector2 _position;
+	Vector2 position_;
 };
 

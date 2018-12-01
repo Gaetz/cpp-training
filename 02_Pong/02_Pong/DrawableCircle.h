@@ -15,10 +15,10 @@ public:
 	int radius();
 
 protected:
-	int _radius;
-	Color _color;
+	int radius_;
+	Color color_;
 
-	SDL_Surface* _surface;
-	SDL_Texture* _texture;
+	SDL_Surface* surface_;
+	SDL_Texture* texture_;
 };
 

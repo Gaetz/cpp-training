@@ -21,7 +21,7 @@ public:
 	void setY(const float y);
 
 private:
-	float _x;
-	float _y;
+	float x_;
+	float y_;
 };
 

@@ -8,15 +8,15 @@ class Ball: public GameObject
 {
 public:
 	Ball();
-	Ball(Vector2& position, Vector2& speed, SDL_Renderer& renderer);
+	Ball(Vector2& position_, Vector2& speed_, SDL_Renderer& renderer_);
 	virtual ~Ball();
 
-	void update(float dt);
-	void draw(SDL_Renderer& renderer);
+	void update(float dt_);
+	void draw(SDL_Renderer& renderer_);
 
 private:
-	DrawableCircle _graphics;
-	Vector2 _speed;
+	DrawableCircle graphics_;
+	Vector2 speed_;
 	void vBounce();
 	void hBounce();
 };

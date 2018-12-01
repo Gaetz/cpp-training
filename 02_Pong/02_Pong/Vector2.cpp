@@ -3,14 +3,14 @@
 
 Vector2::Vector2()
 {
-	_x = 0;
-	_y = 0;
+	x_ = 0;
+	y_ = 0;
 }
 
 Vector2::Vector2(float x, float y)
 {
-	_x = x;
-	_y = y;
+	x_ = x;
+	y_ = y;
 }
 
 Vector2::~Vector2()
@@ -19,13 +19,13 @@ Vector2::~Vector2()
 
 float Vector2::distance(Vector2 & other) const
 {
-	return static_cast<float>(sqrt(pow(_x - other.x(), 2) + pow(_y - other.y(), 2)));
+	return static_cast<float>(sqrt(pow(x_ - other.x(), 2) + pow(y_ - other.y(), 2)));
 }
 
 Vector2 & Vector2::operator+=(const Vector2 & b)
 {
-	_x += b._x;
-	_y += b._y;
+	x_ += b.x_;
+	y_ += b.y_;
 	return *this;
 }
 
@@ -37,35 +37,35 @@ Vector2 operator+(Vector2 a, const Vector2 & b)
 
 Vector2 operator*(Vector2 a, const float mult)
 {
-	return Vector2(a._x * mult, a._y * mult);
+	return Vector2(a.x_ * mult, a.y_ * mult);
 }
 
 float Vector2::x() const
 {
-	return _x;
+	return x_;
 }
 
 float & Vector2::rx()
 {
-	return _x;
+	return x_;
 }
 
 void Vector2::setX(const float x)
 {
-	_x = x;
+	x_ = x;
 }
 
 float Vector2::y() const
 { 
-	return _y;
+	return y_;
 }
 
 float & Vector2::ry()
 {
-	return _y;
+	return y_;
 }
 
 void Vector2::setY(const float y)
 {
-	_y = y;
+	y_ = y;
 }

@@ -2,11 +2,11 @@
 
 
 
-GameObject::GameObject(): _position(Vector2())
+GameObject::GameObject(): position_(Vector2())
 {
 }
 
-GameObject::GameObject(Vector2 position): _position(position)
+GameObject::GameObject(Vector2 position): position_(position)
 {
 }
 
@@ -17,16 +17,16 @@ GameObject::~GameObject()
 
 Vector2 GameObject::position() const
 {
-	return _position;
+	return position_;
 }
 
 Vector2 & GameObject::rPosition()
 {
-	return _position;
+	return position_;
 }
 
 void GameObject::setPosition(const Vector2 & v)
 {
-	_position.setX(v.x());
-	_position.setY(v.y());
+	position_.setX(v.x());
+	position_.setY(v.y());
 }

@@ -7,7 +7,7 @@ class Rect
 {
 public:
 	Rect();
-	Rect(int _x, int _y, int _w, int _h);
+	Rect(int x, int y, int w, int h);
 	~Rect();
 
 	std::unique_ptr<SDL_Rect> toSDLRect(Vector2 position);
@@ -29,9 +29,9 @@ public:
 	void setH(const int h);
 
 private:
-	int _x;
-	int _y;
-	int _w;
-	int _h;
+	int x_;
+	int y_;
+	int w_;
+	int h_;
 };
 

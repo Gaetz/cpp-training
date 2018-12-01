@@ -13,7 +13,7 @@ public:
 	void draw(SDL_Renderer& renderer);
 
 private:
-	Rect _rect;
-	Color _color;
+	Rect rect_;
+	Color color_;
 };
 
