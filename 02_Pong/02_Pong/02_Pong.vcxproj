@@ -91,6 +91,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -153,6 +154,7 @@ xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets" /i
     <ClCompile Include="DrawableRect.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="Rect.cpp" />
@@ -163,11 +165,13 @@ xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets" /i
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ball.h" />
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="DrawableCircle.h" />
     <ClInclude Include="DrawableRect.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="Rect.h" />
     <ClInclude Include="Vector2.h" />

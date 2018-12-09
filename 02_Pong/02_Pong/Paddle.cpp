@@ -1,6 +1,7 @@
 #include "Paddle.h"
-
-
+#include "Input.h"
+#include <algorithm>
+#include "Constants.h"
 
 Paddle::Paddle()
 {
@@ -18,6 +19,9 @@ Paddle::~Paddle()
 
 void Paddle::update(float dt)
 {
+	float y = Input::mousePos().y() - height_ / 2;
+	y = std::clamp<float>(y, 0, SCREEN_HEIGHT - height_);
+	position_.setY(y);
 	graphics_.setPosition(position_);
 }
 

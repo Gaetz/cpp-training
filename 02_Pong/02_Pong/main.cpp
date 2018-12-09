@@ -2,11 +2,11 @@
 #include <SDL_image.h> 
 #include <string>
 
+#include "Constants.h"
 #include "Game.h"
+#include "Input.h"
 
-// Screen dimension constants 
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
+
 
 // Window and renderer
 SDL_Window* window = nullptr;
@@ -22,9 +22,6 @@ int frameStart;
 int lastFrame = 0;
 int dt;
 int frameTime;
-
-// Event handler
-SDL_Event event;
 
 
 int main(int argc, char* args[])
@@ -48,13 +45,7 @@ int main(int argc, char* args[])
 		dt = (frameStart - lastFrame) * 0.001f;
 		lastFrame = frameStart;
 
-		// Update events
-		while (SDL_PollEvent(&event) != 0) {
-			// Program close
-			if (event.type == SDL_QUIT) {
-				quit = true;
-			}
-		}
+		quit = Input::update();
 		game.update(dt);
 		game.draw(*renderer);
 

@@ -66,6 +66,9 @@
     <ClCompile Include="Ball.cpp">
       <Filter>Fichiers sources\Game</Filter>
     </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Fichiers sources\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\tile.png">
@@ -99,6 +102,12 @@
     </ClInclude>
     <ClInclude Include="Ball.h">
       <Filter>Fichiers d%27en-tête\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Fichiers d%27en-tête\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

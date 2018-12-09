@@ -24,6 +24,7 @@ void Game::load(SDL_Renderer& renderer)
 
 void Game::update(float dt)
 {
+	leftPaddle.update(dt);
 	ball.update(dt);
 }
 
