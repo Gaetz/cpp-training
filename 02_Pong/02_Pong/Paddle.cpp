@@ -7,7 +7,8 @@ Paddle::Paddle()
 {
 }
 
-Paddle::Paddle(Vector2 position, Vector2 size, SDL_Renderer& renderer): GameObject(position), width_(static_cast<int>(size.x())), height_(static_cast<int>(size.y()))
+Paddle::Paddle(Vector2 position, Vector2 size, SDL_Renderer& renderer, bool isPlayer):
+	GameObject(position), width_(static_cast<int>(size.x())), height_(static_cast<int>(size.y())), isPlayer_(isPlayer)
 {
 	graphics_ = DrawableRect(position, static_cast<int>(size.x()), static_cast<int>(size.y()), Color(), renderer);
 }
@@ -19,10 +20,15 @@ Paddle::~Paddle()
 
 void Paddle::update(float dt)
 {
-	float y = Input::mousePos().y() - height_ / 2;
-	y = std::clamp<float>(y, 0, static_cast<float>(SCREEN_HEIGHT - height_));
-	position_.setY(y);
-	graphics_.setPosition(position_);
+	if (isPlayer_) {
+		float y = Input::mousePos().y() - height_ / 2;
+		y = std::clamp<float>(y, 0, static_cast<float>(SCREEN_HEIGHT - height_));
+		position_.setY(y);
+		graphics_.setPosition(position_);
+	}
+	else {
+
+	}
 }
 
 void Paddle::draw(SDL_Renderer & renderer)

@@ -10,7 +10,7 @@ class Ball: public GameObject
 {
 public:
 	Ball();
-	Ball(Vector2& position_, Vector2& speed_, SDL_Renderer& renderer_, std::shared_ptr<Paddle> leftPaddle);
+	Ball(Vector2& position_, Vector2& speed_, SDL_Renderer& renderer_, std::shared_ptr<Paddle> leftPaddle, std::shared_ptr<Paddle> rightPaddle);
 	virtual ~Ball();
 
 	void update(float dt_);

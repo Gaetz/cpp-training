@@ -7,7 +7,7 @@ class Paddle :
 {
 public:
 	Paddle();
-	Paddle(Vector2 position, Vector2 size, SDL_Renderer& renderer);
+	Paddle(Vector2 position, Vector2 size, SDL_Renderer& renderer, bool isPlayer);
 	virtual ~Paddle();
 
 	void update(float dt);
@@ -21,5 +21,6 @@ private:
 	DrawableRect graphics_;
 	int width_;
 	int height_;
+	bool isPlayer_;
 };
 

@@ -15,7 +15,10 @@ public:
 	void draw(SDL_Renderer& renderer);
 
 private:
+	void reset();
+
 	std::shared_ptr<Paddle> leftPaddle_;
+	std::shared_ptr<Paddle> rightPaddle_;
 	Ball ball;
 };
 

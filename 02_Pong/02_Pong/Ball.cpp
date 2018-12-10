@@ -1,10 +1,12 @@
 #include "Ball.h"
+#include "Constants.h"
 
 Ball::Ball()
 {
 }
 
-Ball::Ball(Vector2 & position, Vector2 & speed, SDL_Renderer& renderer, std::shared_ptr<Paddle> leftPaddle) : GameObject(position), speed_(speed), leftPaddle_(leftPaddle)
+Ball::Ball(Vector2 & position, Vector2 & speed, SDL_Renderer& renderer, std::shared_ptr<Paddle> leftPaddle, std::shared_ptr<Paddle> rightPaddle) :
+	GameObject(position), speed_(speed), leftPaddle_(leftPaddle), rightPaddle_(rightPaddle)
 {
 	graphics_ = DrawableCircle(position, 10, Color(255, 255, 255, 255), renderer);
 }
@@ -20,15 +22,11 @@ void Ball::update(float dt)
 	graphics_.setPosition(position_);
 	// Bounces
 	// - Out of screen
-	if (position_.x() + radius > 640.f) {
-		hBounce();
-		position_.setX(640.f - radius);
-	}
 	if (position_.y() < 0) {
 		vBounce();
 		position_.setY(0);
 	}
-	if (position_.y() + radius > 480.f) {
+	else if (position_.y() + radius > SCREEN_HEIGHT) {
 		vBounce();
 		position_.setY(480.f - radius);
 	}
@@ -36,8 +34,19 @@ void Ball::update(float dt)
 	if (position_.x() <= leftPaddle_->width() + radius) {
 		float leftPaddleY = leftPaddle_->position().y();
 		if (position_.y() >= leftPaddleY &&
-			position_.y() <= leftPaddleY + leftPaddle_->height()) {
+			position_.y() <= leftPaddleY + leftPaddle_->height())
+		{
 			hBounce();
+			position_.setX(static_cast<float>(leftPaddle_->width() + radius));
+		}
+	}
+	if (position_.x() >= rightPaddle_->position().x() - radius) {
+		float rightPaddleY = rightPaddle_->position().y();
+		if (position_.y() >= rightPaddleY &&
+			position_.y() <= rightPaddleY + rightPaddle_->height())
+		{
+			hBounce();
+			position_.setX(static_cast<float>(rightPaddle_->position().x() - radius));
 		}
 	}
 }
