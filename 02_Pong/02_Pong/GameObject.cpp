@@ -6,7 +6,7 @@ GameObject::GameObject(): position_(Vector2())
 {
 }
 
-GameObject::GameObject(Vector2 position): position_(position)
+GameObject::GameObject(Vector2& position): position_(position)
 {
 }
 

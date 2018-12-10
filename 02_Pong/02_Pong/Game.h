@@ -2,6 +2,7 @@
 #include <SDL.h> 
 #include "Paddle.h"
 #include "Ball.h"
+#include <memory>
 
 class Game
 {
@@ -14,7 +15,7 @@ public:
 	void draw(SDL_Renderer& renderer);
 
 private:
-	Paddle leftPaddle;
+	std::shared_ptr<Paddle> leftPaddle_;
 	Ball ball;
 };
 

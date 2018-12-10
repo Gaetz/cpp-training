@@ -13,9 +13,11 @@ public:
 	void update(float dt);
 	void draw(SDL_Renderer & renderer);
 
+	int width();
+	int height();
+
 
 private:
-	Vector2 position_;
 	DrawableRect graphics_;
 	int width_;
 	int height_;

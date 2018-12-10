@@ -6,7 +6,7 @@ class GameObject
 {
 public:
 	GameObject();
-	GameObject(Vector2 position);
+	GameObject(Vector2& position);
 	virtual ~GameObject();
 
 	Vector2 position() const;
