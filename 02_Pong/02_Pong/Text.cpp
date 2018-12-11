@@ -4,27 +4,30 @@ Text::Text()
 {
 }
 
-Text::Text(const Vector2 & position, std::string& text, std::string& font, int w, int h, const Color & color, SDL_Renderer & renderer):
-	Drawable(position), text_(text), color_(color)
+Text::Text(const Vector2& position, const std::string& text, TTF_Font* font, int w, int h, const Color & color, SDL_Renderer & renderer):
+	Drawable(position), text_(text), color_(color), renderer_(&renderer)
 {
-	font_ = std::make_unique<TTF_Font>(TTF_OpenFont(font.c_str(), 24));
-	color_ = color;
-	SDL_Surface* surface = TTF_RenderText_Solid(font_.get(), text.c_str(), color_.toSDLColor());
-	texture_ = std::make_unique<SDL_Texture>(SDL_CreateTextureFromSurface(&renderer, surface));
+	SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), color_.toSDLColor());
+	texture_ = SDL_CreateTextureFromSurface(&renderer, surface);
 	rect_ = Rect(0, 0, w, h);
+	SDL_FreeSurface(surface);
 }
 
 Text::~Text()
 {
+	renderer_ = nullptr;
+	SDL_DestroyTexture(texture_);
 }
 
 void Text::draw(SDL_Renderer & renderer)
 {
-	SDL_RenderCopy(&renderer, texture_.get(), nullptr, rect_.toSDLRect(position_).get());
+	SDL_RenderCopy(&renderer, texture_, nullptr, rect_.toSDLRect(position_).get());
 }
 
-void Text::setText(std::string & text, SDL_Renderer & renderer)
+void Text::setText(const std::string & text, TTF_Font* font)
 {
-	SDL_Surface* surface = TTF_RenderText_Solid(font_.get(), text.c_str(), color_.toSDLColor());
-	texture_ = std::make_unique<SDL_Texture>(SDL_CreateTextureFromSurface(&renderer, surface));
+	SDL_DestroyTexture(texture_);
+	SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), color_.toSDLColor());
+	texture_ = SDL_CreateTextureFromSurface(renderer_, surface);
+	SDL_FreeSurface(surface);
 }

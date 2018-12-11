@@ -158,6 +158,7 @@ xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets" /i
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Paddle.cpp" />
     <ClCompile Include="Rect.cpp" />
+    <ClCompile Include="Text.cpp" />
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -174,6 +175,7 @@ xcopy /y /s "$(ProjectDir)assets" "$(OutDir)assets" /i
     <ClInclude Include="Input.h" />
     <ClInclude Include="Paddle.h" />
     <ClInclude Include="Rect.h" />
+    <ClInclude Include="Text.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

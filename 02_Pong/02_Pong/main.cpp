@@ -33,7 +33,8 @@ int main(int argc, char* args[])
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 	SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
 	IMG_Init(IMG_INIT_PNG);
-
+	TTF_Init();
+	
 	// Load game
 	Game game;
 	game.load(*renderer);
