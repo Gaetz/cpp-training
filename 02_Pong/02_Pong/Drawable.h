@@ -5,13 +5,13 @@ class Drawable
 {
 public:
 	Drawable();
-	Drawable(const Vector2& position);
+	Drawable(const Vector2& position_);
 	virtual ~Drawable();
 
-	void setPosition(Vector2 position);
-	virtual void draw(SDL_Renderer& renderer) = 0;
+	void s_position(const Vector2& position_);
+	virtual void draw(SDL_Renderer& renderer_) = 0;
 
 protected:
-	Vector2 position_;
+	Vector2 position;
 };
 

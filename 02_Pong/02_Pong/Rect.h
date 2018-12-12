@@ -10,28 +10,28 @@ public:
 	Rect(int x, int y, int w, int h);
 	~Rect();
 
-	std::unique_ptr<SDL_Rect> toSDLRect(Vector2 position);
+	std::unique_ptr<SDL_Rect> to_sdl_rect(Vector2 position);
 
-	int x() const;
-	int& rx();
-	void setX(const int x);
+	int _x() const;
+	int& r_x();
+	void s_x(const int x);
 
-	int y() const;
-	int& ry();
-	void setY(const int y);
+	int _y() const;
+	int& r_y();
+	void s_y(const int y);
 
-	int w() const;
-	int& rw();
-	void setW(const int w);
+	int _w() const;
+	int& r_w();
+	void s_w(const int w);
 
-	int h() const;
-	int& rh();
-	void setH(const int h);
+	int _h() const;
+	int& r_h();
+	void s_h(const int h);
 
 private:
-	int x_;
-	int y_;
-	int w_;
-	int h_;
+	int x;
+	int y;
+	int w;
+	int h;
 };
 

@@ -20,14 +20,14 @@ public:
 private:
 	void reset();
 
-	std::shared_ptr<Paddle> leftPaddle_;
-	std::shared_ptr<Paddle> rightPaddle_;
+	std::shared_ptr<Paddle> left_paddle;
+	std::shared_ptr<Paddle> right_paddle;
 	Ball ball;
-	int leftScore_;
-	int rightScore_;
-	Text leftScoreText_;
-	Text rightScoreText_;
-	TTF_Font* font_;
+	int left_score;
+	int right_score;
+	Text left_score_text;
+	Text right_score_text;
+	TTF_Font* font;
 
 };
 

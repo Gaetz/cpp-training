@@ -9,39 +9,39 @@ Input::~Input()
 {
 }
 
-bool Input::leftButtonClicked_ = false;
-bool Input::leftButtonJustClicked_ = false;
-bool Input::leftButtonJustReleased_ = false;
-int Input::mouse_x_ = 0;
-int Input::mouse_y_ = 0;
+bool Input::is_left_button_clicked = false;
+bool Input::is_left_button_just_clicked = false;
+bool Input::is_left_button_just_released = false;
+int Input::mouse_x = 0;
+int Input::mouse_y = 0;
 
-Vector2 Input::mousePos()
+Vector2 Input::mouse_pos()
 {
-	SDL_GetMouseState(&mouse_x_, &mouse_y_);
-	return Vector2(static_cast<float>(mouse_x_), static_cast<float>(mouse_y_));
+	SDL_GetMouseState(&mouse_x, &mouse_y);
+	return Vector2(static_cast<float>(mouse_x), static_cast<float>(mouse_y));
 }
 
-bool Input::leftButtonClicked()
+bool Input::left_button_clicked()
 {
-	return leftButtonClicked_;
+	return is_left_button_clicked;
 }
 
-bool Input::leftButtonJustClicked()
+bool Input::left_button_just_clicked()
 {
-	return leftButtonJustClicked_;
+	return is_left_button_just_clicked;
 }
 
-bool Input::leftButtonJustReleased()
+bool Input::left_button_just_released()
 {
-	return leftButtonJustReleased_;
+	return is_left_button_just_released;
 }
 
 bool Input::update()
 {
 	SDL_Event event;
 	// Manage variables
-	if (leftButtonJustReleased_) {
-		leftButtonJustReleased_ = false;
+	if (is_left_button_just_released) {
+		is_left_button_just_released = false;
 	}
 	// Update events
 	while (SDL_PollEvent(&event) != 0) {
@@ -49,17 +49,17 @@ bool Input::update()
 		case SDL_QUIT:
 			return true;
 		case SDL_MOUSEBUTTONDOWN:
-			if (leftButtonClicked_) {
-				leftButtonJustClicked_ = false;
+			if (is_left_button_clicked) {
+				is_left_button_just_clicked = false;
 			}
 			else {
-				leftButtonClicked_ = true;
-				leftButtonJustClicked_ = true;
+				is_left_button_clicked = true;
+				is_left_button_just_clicked = true;
 			}
 		case SDL_MOUSEBUTTONUP:
-			if (leftButtonClicked_) {
-				leftButtonClicked_ = false;
-				leftButtonJustReleased_ = true;
+			if (is_left_button_clicked) {
+				is_left_button_clicked = false;
+				is_left_button_just_released = true;
 			}
 			return false;
 		}

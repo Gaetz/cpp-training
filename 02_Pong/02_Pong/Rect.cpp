@@ -2,90 +2,90 @@
 
 Rect::Rect()
 {
-	x_ = 0;
-	y_ = 0;
-	w_ = 1;
-	h_ = 1;
+	x = 0;
+	y = 0;
+	w = 1;
+	h = 1;
 }
 
-Rect::Rect(int x, int y, int w, int h)
+Rect::Rect(int x_, int y_, int w_, int h_)
 {
-	x_ = x;
-	y_ = y;
-	w_ = w;
-	h_ = h;
+	x = x_;
+	y = y_;
+	w = w_;
+	h = h_;
 }
 
 Rect::~Rect()
 {
 }
 
-std::unique_ptr<SDL_Rect> Rect::toSDLRect(Vector2 position)
+std::unique_ptr<SDL_Rect> Rect::to_sdl_rect(Vector2 position)
 {
 	std::unique_ptr<SDL_Rect> rect = std::make_unique<SDL_Rect>();
-	rect->x = position.x() + x_;
-	rect->y = position.y() + y_;
-	rect->w = w_;
-	rect->h = h_;
+	rect->x = position._x() + x;
+	rect->y = position._y() + y;
+	rect->w = w;
+	rect->h = h;
 	return rect;
 }
 
-int Rect::x() const
+int Rect::_x() const
 {
-	return x_;
+	return x;
 }
 
-int & Rect::rx()
+int & Rect::r_x()
 {
-	return x_;
+	return x;
 }
 
-void Rect::setX(const int x)
+void Rect::s_x(const int x_)
 {
-	x_ = x;
+	x = x_;
 }
 
-int Rect::y() const
+int Rect::_y() const
 {
-	return y_;
+	return y;
 }
 
-int & Rect::ry()
+int & Rect::r_y()
 {
-	return y_;
+	return y;
 }
 
-void Rect::setY(const int y)
+void Rect::s_y(const int y_)
 {
-	y_ = y;
+	y = y_;
 }
 
-int Rect::w() const
+int Rect::_w() const
 {
-	return w_;
+	return w;
 }
 
-int & Rect::rw()
+int & Rect::r_w()
 {
-	return w_;
+	return w;
 }
 
-void Rect::setW(const int w)
+void Rect::s_w(const int w_)
 {
-	w_ = w;
+	w = w_;
 }
 
-int Rect::h() const
+int Rect::_h() const
 {
-	return h_;
+	return h;
 }
 
-int & Rect::rh()
+int & Rect::r_h()
 {
-	return h_;
+	return h;
 }
 
-void Rect::setH(const int h)
+void Rect::s_h(const int h_)
 {
-	h_ = h;
+	h = h_;
 }

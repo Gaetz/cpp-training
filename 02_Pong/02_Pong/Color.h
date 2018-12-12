@@ -10,14 +10,14 @@ struct Color
 		a = 255;
 	}
 
-	Color(int rp, int gp, int bp, int ap) {
-		r = rp;
-		g = gp;
-		b = bp;
-		a = ap;
+	Color(int r_, int g_, int b_, int a_) {
+		r = r_;
+		g = g_;
+		b = b_;
+		a = a_;
 	}
 
-	SDL_Color toSDLColor() {
+	SDL_Color to_sdl_color() {
 		SDL_Color c;
 		c.r = r;
 		c.g = g;
@@ -26,7 +26,7 @@ struct Color
 		return c;
 	}
 
-	Uint32 toUint32() {
+	Uint32 to_Uint32() {
 		return ((r & 0xff) << 24) + ((g & 0xff) << 16) + ((b & 0xff) << 8) + (a & 0xff);
 	}
 

@@ -11,41 +11,43 @@ Game::Game()
 
 Game::~Game()
 {
-	TTF_CloseFont(font_);
+	TTF_CloseFont(font);
 	TTF_Quit();
 }
 
 void Game::load(SDL_Renderer& renderer)
 {
-	leftPaddle_ = std::make_shared<Paddle>(Vector2(0, 200), Vector2(20, 100), renderer, true);
-	rightPaddle_ = std::make_shared<Paddle>(Vector2(SCREEN_WIDTH - 20, 200), Vector2(20, 100), renderer, false);
-	font_ = TTF_OpenFont("assets/arial.ttf", 24);
+	left_paddle = std::make_shared<Paddle>(Vector2(0, 200), Vector2(20, 100), renderer, true);
+	right_paddle = std::make_shared<Paddle>(Vector2(SCREEN_WIDTH - 20, 200), Vector2(20, 100), renderer, false);
+	font = TTF_OpenFont("assets/arial.ttf", 24);
 
-	Vector2 ballPosition = BALL_START;
-	Vector2 ballSpeed = BALL_SPEED;
-	ball = Ball(ballPosition, ballSpeed, renderer, leftPaddle_, rightPaddle_);
+	ball = Ball(BALL_START, BALL_SPEED, renderer, left_paddle, right_paddle);
 
-	leftScore_ = 0;
-	rightScore_ = 0;
-	Color textColor = Color(255, 255, 255, 255);
-	leftScoreText_ = Text(Vector2(50, 50), std::to_string(leftScore_), font_, 50, 50, textColor, renderer);
-	rightScoreText_ = Text(Vector2(SCREEN_WIDTH - 100, 50), std::to_string(rightScore_), font_, 50, 50, textColor, renderer);
-	leftScoreText_.setText(std::to_string(leftScore_), font_);
-	rightScoreText_.setText(std::to_string(rightScore_), font_);
+	left_score = 0;
+	right_score = 0;
+	std::string left_score_string = std::to_string(left_score);
+	std::string right_score_string = std::to_string(right_score);
+	Color text_color = Color(255, 255, 255, 255);
+	left_score_text = Text(Vector2(50, 50), left_score_string, font, 60, 60, text_color, renderer);
+	right_score_text = Text(Vector2(SCREEN_WIDTH - 100, 50), right_score_string, font, 60, 60, text_color, renderer);
+	left_score_text.s_text(left_score_string, font);
+	right_score_text.s_text(right_score_string, font);
 }
 
 void Game::update(float dt)
 {
-	leftPaddle_->update(dt);
-	rightPaddle_->update(dt);
+	left_paddle->update(dt);
+	right_paddle->update(dt);
 
 	ball.update(dt);
-	if (ball.position().x() < 0) {
-		rightScoreText_.setText(std::to_string(++rightScore_), font_);
+	if (ball._position()._x() < 0) 
+	{
+		right_score_text.s_text(std::to_string(++right_score), font);
 		reset();
 	}
-	else if (ball.position().x() > SCREEN_WIDTH) {
-		leftScoreText_.setText(std::to_string(++leftScore_), font_);
+	else if (ball._position()._x() > SCREEN_WIDTH) 
+	{
+		left_score_text.s_text(std::to_string(++left_score), font);
 		reset();
 	}
 }
@@ -54,17 +56,17 @@ void Game::draw(SDL_Renderer& renderer)
 {
 	SDL_RenderClear(&renderer);
 
-	leftPaddle_->draw(renderer);
-	rightPaddle_->draw(renderer);
+	left_paddle->draw(renderer);
+	right_paddle->draw(renderer);
 	ball.draw(renderer);
-	leftScoreText_.draw(renderer);
-	rightScoreText_.draw(renderer);
+	left_score_text.draw(renderer);
+	right_score_text.draw(renderer);
 
 	SDL_RenderPresent(&renderer);
 }
 
 void Game::reset() 
 {
-	ball.setPosition(BALL_START);
-	ball.setSpeed(BALL_SPEED);
+	ball.s_position(BALL_START);
+	ball.s_speed(BALL_SPEED);
 }

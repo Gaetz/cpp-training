@@ -7,13 +7,13 @@ class DrawableRect : public Drawable
 {
 public:
 	DrawableRect();
-	DrawableRect(const Vector2& position, int w, int h, const Color& color, SDL_Renderer& renderer);
+	DrawableRect(const Vector2& position_, int w, int h, const Color& color_, SDL_Renderer& renderer);
 	virtual ~DrawableRect();
 
 	void draw(SDL_Renderer& renderer);
 
 private:
-	Rect rect_;
-	Color color_;
+	Rect rect;
+	Color color;
 };
 

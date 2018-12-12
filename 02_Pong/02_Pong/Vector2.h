@@ -3,7 +3,7 @@ class Vector2
 {
 public:
 	Vector2();
-	Vector2(float x, float y);
+	Vector2(float x_, float y_);
 	~Vector2();
 
 	float distance(Vector2& other) const;
@@ -12,16 +12,16 @@ public:
 	friend Vector2 operator+(Vector2 a, const Vector2& b);
 	friend Vector2 operator*(Vector2 a, const float mult);
 
-	float x() const;
-	float& rx();
-	void setX(const float x);
+	float _x() const;
+	float& r_x();
+	void s_x(const float x);
 
-	float y() const;
-	float& ry();
-	void setY(const float y);
+	float _y() const;
+	float& r_y();
+	void s_y(const float y);
 
 private:
-	float x_;
-	float y_;
+	float x;
+	float y;
 };
 

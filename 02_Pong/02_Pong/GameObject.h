@@ -6,17 +6,17 @@ class GameObject
 {
 public:
 	GameObject();
-	GameObject(Vector2& position);
+	GameObject(const Vector2& position_);
 	virtual ~GameObject();
 
-	Vector2 position() const;
-	Vector2& rPosition();
-	void setPosition(const Vector2& v);
+	Vector2 _position() const;
+	Vector2& r_position();
+	void s_position(const Vector2& v);
 
 	virtual void update(float dt) = 0;
-	virtual void draw(SDL_Renderer& renderer) = 0;
+	virtual void draw(SDL_Renderer& renderer_) = 0;
 
 protected:
-	Vector2 position_;
+	Vector2 position;
 };
 

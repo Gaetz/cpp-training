@@ -10,16 +10,16 @@ public:
 
 	static bool update();
 
-	static Vector2 mousePos();
-	static bool leftButtonClicked();
-	static bool leftButtonJustClicked();
-	static bool leftButtonJustReleased();
+	static Vector2 mouse_pos();
+	static bool left_button_clicked();
+	static bool left_button_just_clicked();
+	static bool left_button_just_released();
 
 private:
-	static int mouse_x_;
-	static int mouse_y_;
-	static bool leftButtonClicked_;
-	static bool leftButtonJustClicked_;
-	static bool leftButtonJustReleased_;
+	static int mouse_x;
+	static int mouse_y;
+	static bool is_left_button_clicked;
+	static bool is_left_button_just_clicked;
+	static bool is_left_button_just_released;
 };
 

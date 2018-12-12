@@ -18,11 +18,11 @@ bool quit = false;
 
 // Delta time
 const int FPS = 60;
-const int frameDelay = 1000 / FPS;
-int frameStart;
-int lastFrame = 0;
+const int frame_delay = 1000 / FPS;
+int frame_start;
+int last_frame = 0;
 int dt;
-int frameTime;
+int frame_time;
 
 
 int main(int argc, char* args[])
@@ -43,18 +43,18 @@ int main(int argc, char* args[])
 	// Loop
 	while (!quit) {
 		// Delta time
-		frameStart = SDL_GetTicks();
-		dt = (frameStart - lastFrame) * 0.001f;
-		lastFrame = frameStart;
+		frame_start = SDL_GetTicks();
+		dt = (frame_start - last_frame) * 0.001f;
+		last_frame = frame_start;
 
 		quit = Input::update();
 		game.update(dt);
 		game.draw(*renderer);
 
 		// Delay frame if game runs too fast
-		frameTime = SDL_GetTicks() - frameStart;
-		if (frameTime < frameDelay) {
-			SDL_Delay(frameDelay - frameTime);
+		frame_time = SDL_GetTicks() - frame_start;
+		if (frame_time < frame_delay) {
+			SDL_Delay(frame_delay - frame_time);
 		}
 	}
 

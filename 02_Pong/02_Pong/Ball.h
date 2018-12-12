@@ -10,20 +10,21 @@ class Ball: public GameObject
 {
 public:
 	Ball();
-	Ball(Vector2& position_, Vector2& speed_, SDL_Renderer& renderer_, std::shared_ptr<Paddle> leftPaddle, std::shared_ptr<Paddle> rightPaddle);
+	Ball(const Vector2& position_, const Vector2& speed_, SDL_Renderer& renderer_, std::shared_ptr<Paddle> leftPaddle_, std::shared_ptr<Paddle> rightPaddle_);
 	virtual ~Ball();
 
 	void update(float dt_);
 	void draw(SDL_Renderer& renderer_);
 
-	void setSpeed(const Vector2& speed);
+	void s_speed(const Vector2& speed_);
 
 private:
-	DrawableCircle graphics_;
-	Vector2 speed_;
-	void vBounce();
-	void hBounce();
-	std::shared_ptr<Paddle> leftPaddle_;
-	std::shared_ptr<Paddle> rightPaddle_;
+	DrawableCircle graphics;
+	Vector2 speed;
+	std::shared_ptr<Paddle> left_paddle;
+	std::shared_ptr<Paddle> right_paddle;
+
+	void v_bounce();
+	void h_bounce();
 };
 

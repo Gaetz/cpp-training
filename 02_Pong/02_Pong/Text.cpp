@@ -4,30 +4,30 @@ Text::Text()
 {
 }
 
-Text::Text(const Vector2& position, const std::string& text, TTF_Font* font, int w, int h, const Color & color, SDL_Renderer & renderer):
-	Drawable(position), text_(text), color_(color), renderer_(&renderer)
+Text::Text(const Vector2& position_, const std::string& text_, TTF_Font* font_, int w, int h, const Color & color_, SDL_Renderer & renderer_):
+	Drawable(position_), text(text_), color(color_), renderer(&renderer_)
 {
-	SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), color_.toSDLColor());
-	texture_ = SDL_CreateTextureFromSurface(&renderer, surface);
-	rect_ = Rect(0, 0, w, h);
-	SDL_FreeSurface(surface);
+	rect = Rect(0, 0, w, h);
 }
 
 Text::~Text()
 {
-	renderer_ = nullptr;
-	SDL_DestroyTexture(texture_);
+	renderer = nullptr;
+	SDL_DestroyTexture(texture);
 }
 
 void Text::draw(SDL_Renderer & renderer)
 {
-	SDL_RenderCopy(&renderer, texture_, nullptr, rect_.toSDLRect(position_).get());
+	SDL_RenderCopy(&renderer, texture, nullptr, rect.to_sdl_rect(position).get());
 }
 
-void Text::setText(const std::string & text, TTF_Font* font)
+void Text::s_text(const std::string & text_, TTF_Font* font_)
 {
-	SDL_DestroyTexture(texture_);
-	SDL_Surface* surface = TTF_RenderText_Solid(font, text.c_str(), color_.toSDLColor());
-	texture_ = SDL_CreateTextureFromSurface(renderer_, surface);
+	if (texture != nullptr) {
+		SDL_DestroyTexture(texture);
+	}
+	text = text_;
+	SDL_Surface* surface = TTF_RenderText_Solid(font_, text.c_str(), color.to_sdl_color());
+	texture = SDL_CreateTextureFromSurface(renderer, surface);
 	SDL_FreeSurface(surface);
 }

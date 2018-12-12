@@ -12,16 +12,16 @@ class Text :
 {
 public:
 	Text();
-	Text(const Vector2& position, const std::string& text, TTF_Font* font, int w, int h, const Color& color, SDL_Renderer& renderer);
+	Text(const Vector2& position_, const std::string& text_, TTF_Font* font_, int w, int h, const Color& color_, SDL_Renderer& renderer_);
 	virtual ~Text();
 
 	void draw(SDL_Renderer& renderer);
-	void setText(const std::string& text, TTF_Font* font);
+	void s_text(const std::string& text_, TTF_Font* font);
 
 private:
-	Rect rect_;
-	Color color_;
-	std::string text_;
-	SDL_Texture* texture_ = nullptr;
-	SDL_Renderer* renderer_ = nullptr;
+	Rect rect;
+	Color color;
+	std::string text;
+	SDL_Texture* texture = nullptr;
+	SDL_Renderer* renderer = nullptr;
 };
