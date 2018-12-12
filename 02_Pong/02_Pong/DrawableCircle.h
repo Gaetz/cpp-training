@@ -17,8 +17,5 @@ public:
 protected:
 	int radius;
 	Color color;
-
-	SDL_Surface* surface;
-	SDL_Texture* texture;
 };
 
