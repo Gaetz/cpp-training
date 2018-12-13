@@ -15,12 +15,13 @@ public:
 
 	int _width() const;
 	int _height() const;
-
+	void s_ball_y(const float y_);
 
 private:
 	DrawableRect graphics;
 	int width;
 	int height;
 	bool is_player;
+	float ball_y;
 };
 

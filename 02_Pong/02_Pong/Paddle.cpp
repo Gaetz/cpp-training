@@ -24,11 +24,16 @@ void Paddle::update(float dt)
 		float y = Input::mouse_pos()._y() - height / 2;
 		y = std::clamp<float>(y, 0, static_cast<float>(SCREEN_HEIGHT - height));
 		position.s_y(y);
-		graphics.s_position(position);
 	}
 	else {
-
+		if (ball_y > position._y() + height * 3 / 4) {
+			position.s_y(position._y() + OPPONENT_SPEED);
+		}
+		else if (ball_y < position._y() + height / 4) {
+			position.s_y(position._y() - OPPONENT_SPEED);
+		}
 	}
+	graphics.s_position(position);
 }
 
 void Paddle::draw(SDL_Renderer & renderer)
@@ -44,4 +49,9 @@ int Paddle::_width() const
 int Paddle::_height() const
 {
 	return height;
+}
+
+void Paddle::s_ball_y(const float y_)
+{
+	ball_y = y_;
 }

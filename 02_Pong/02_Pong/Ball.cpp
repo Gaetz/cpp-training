@@ -20,6 +20,7 @@ void Ball::update(float dt)
 	int radius = graphics._radius();
 	position += (speed * dt);
 	graphics.s_position(position);
+	right_paddle->s_ball_y(position._y());
 	// Bounces
 	// - Out of screen
 	if (position._y() < 0) {
