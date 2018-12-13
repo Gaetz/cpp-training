@@ -26,10 +26,10 @@ void Paddle::update(float dt)
 		position.s_y(y);
 	}
 	else {
-		if (ball_y > position._y() + height * 3 / 4) {
+		if (ball_y > position._y() + height - DEAD_ZONE_HEIGHT) {
 			position.s_y(position._y() + OPPONENT_SPEED);
 		}
-		else if (ball_y < position._y() + height / 4) {
+		else if (ball_y < position._y() + DEAD_ZONE_HEIGHT) {
 			position.s_y(position._y() - OPPONENT_SPEED);
 		}
 	}

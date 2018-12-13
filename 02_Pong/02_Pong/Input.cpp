@@ -39,9 +39,12 @@ bool Input::left_button_just_released()
 bool Input::update()
 {
 	SDL_Event event;
-	// Manage variables
+	// Reset variables
 	if (is_left_button_just_released) {
 		is_left_button_just_released = false;
+	}
+	if (is_left_button_just_clicked) {
+		is_left_button_just_clicked = false;
 	}
 	// Update events
 	while (SDL_PollEvent(&event) != 0) {
@@ -49,13 +52,8 @@ bool Input::update()
 		case SDL_QUIT:
 			return true;
 		case SDL_MOUSEBUTTONDOWN:
-			if (is_left_button_clicked) {
-				is_left_button_just_clicked = false;
-			}
-			else {
-				is_left_button_clicked = true;
-				is_left_button_just_clicked = true;
-			}
+			is_left_button_clicked = true;
+			is_left_button_just_clicked = true;
 		case SDL_MOUSEBUTTONUP:
 			if (is_left_button_clicked) {
 				is_left_button_clicked = false;

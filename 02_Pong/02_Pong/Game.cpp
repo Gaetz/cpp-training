@@ -3,6 +3,7 @@
 #include <SDL_image.h>
 #include "Color.h"
 #include "Constants.h"
+#include "Input.h"
 
 Game::Game()
 {
@@ -23,32 +24,52 @@ void Game::load(SDL_Renderer& renderer)
 
 	ball = Ball(BALL_START, BALL_SPEED, renderer, left_paddle, right_paddle);
 
-	left_score = 0;
-	right_score = 0;
+	Color text_color = Color(255, 255, 255, 255);
 	std::string left_score_string = std::to_string(left_score);
 	std::string right_score_string = std::to_string(right_score);
-	Color text_color = Color(255, 255, 255, 255);
 	left_score_text = Text(Vector2(50, 50), left_score_string, font, 60, 60, text_color, renderer);
 	right_score_text = Text(Vector2(SCREEN_WIDTH - 100, 50), right_score_string, font, 60, 60, text_color, renderer);
-	left_score_text.s_text(left_score_string, font);
-	right_score_text.s_text(right_score_string, font);
+	victory_text = Text(Vector2(250, 150), "", font, 200, 50, Color(), renderer);
+	restart_text = Text(Vector2(200, 220), "", font, 300, 50, Color(), renderer);
+	restart_text.s_text("Click to restart game", font);
+	restart();
 }
 
 void Game::update(float dt)
 {
-	left_paddle->update(dt);
-	right_paddle->update(dt);
+	// Game
+	if (outcome == 0) {
+		left_paddle->update(dt);
+		right_paddle->update(dt);
 
-	ball.update(dt);
-	if (ball._position()._x() < 0) 
-	{
-		right_score_text.s_text(std::to_string(++right_score), font);
-		reset();
+		ball.update(dt);
+		if (ball._position()._x() < 0)
+		{
+			right_score_text.s_text(std::to_string(++right_score), font);
+			if (right_score >= MAX_SCORE) {
+				victory_text.s_text("AI wins", font);
+				outcome = 2;
+			}
+			else {
+				reset();
+			}
+		}
+		else if (ball._position()._x() > SCREEN_WIDTH)
+		{
+			left_score_text.s_text(std::to_string(++left_score), font);
+			if (left_score >= MAX_SCORE) {
+				victory_text.s_text("Player wins", font);
+				outcome = 1;
+			}
+			else {
+				reset();
+			}
+		}
 	}
-	else if (ball._position()._x() > SCREEN_WIDTH) 
-	{
-		left_score_text.s_text(std::to_string(++left_score), font);
-		reset();
+	else {
+		if (Input::left_button_just_clicked()) {
+			restart();
+		}
 	}
 }
 
@@ -56,12 +77,17 @@ void Game::draw(SDL_Renderer& renderer)
 {
 	SDL_RenderClear(&renderer);
 
-	left_paddle->draw(renderer);
-	right_paddle->draw(renderer);
-	ball.draw(renderer);
-	left_score_text.draw(renderer);
-	right_score_text.draw(renderer);
-
+	if (outcome == 0) {
+		left_paddle->draw(renderer);
+		right_paddle->draw(renderer);
+		ball.draw(renderer);
+		left_score_text.draw(renderer);
+		right_score_text.draw(renderer);
+	}
+	else {
+		victory_text.draw(renderer);
+		restart_text.draw(renderer);
+	}
 	SDL_RenderPresent(&renderer);
 }
 
@@ -69,4 +95,16 @@ void Game::reset()
 {
 	ball.s_position(BALL_START);
 	ball.s_speed(BALL_SPEED);
+}
+
+void Game::restart()
+{
+	left_score = 0;
+	right_score = 0;
+	std::string left_score_string = std::to_string(left_score);
+	std::string right_score_string = std::to_string(right_score);
+	left_score_text.s_text(left_score_string, font);
+	right_score_text.s_text(right_score_string, font);
+	reset();
+	outcome = 0;
 }
