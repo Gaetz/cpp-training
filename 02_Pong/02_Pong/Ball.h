@@ -25,6 +25,6 @@ private:
 	std::shared_ptr<Paddle> right_paddle;
 
 	void v_bounce();
-	void h_bounce();
+	void h_bounce(bool on_player);
 };
 

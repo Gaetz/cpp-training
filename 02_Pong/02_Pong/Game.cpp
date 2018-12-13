@@ -18,7 +18,7 @@ Game::~Game()
 void Game::load(SDL_Renderer& renderer)
 {
 	left_paddle = std::make_shared<Paddle>(Vector2(0, 200), Vector2(20, 100), renderer, true);
-	right_paddle = std::make_shared<Paddle>(Vector2(SCREEN_WIDTH - 20, 200), Vector2(20, 100), renderer, false);
+	right_paddle = std::make_shared<Paddle>(OPPONENT_START, Vector2(20, 100), renderer, false);
 	font = TTF_OpenFont("assets/arial.ttf", 24);
 
 	ball = Ball(BALL_START, BALL_SPEED, renderer, left_paddle, right_paddle);
