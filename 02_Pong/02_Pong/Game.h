@@ -1,11 +1,12 @@
 #pragma once
+#include <memory>
+#include <vector>
 #include <SDL.h> 
 #include <SDL_ttf.h> 
 
 #include "Paddle.h"
 #include "Ball.h"
 #include "Text.h"
-#include <memory>
 
 class Game
 {
@@ -21,6 +22,7 @@ private:
 	void reset();
 	void restart();
 
+	std::vector<std::unique_ptr<DrawableRect>> net;
 	std::shared_ptr<Paddle> left_paddle;
 	std::shared_ptr<Paddle> right_paddle;
 	Ball ball;

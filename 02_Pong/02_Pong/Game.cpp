@@ -1,6 +1,7 @@
-#include "Game.h"
 #include <string>
 #include <SDL_image.h>
+
+#include "Game.h"
 #include "Color.h"
 #include "Constants.h"
 #include "Input.h"
@@ -9,18 +10,27 @@ Game::Game()
 {
 }
 
-
 Game::~Game()
 {
+	net.clear();
 	TTF_CloseFont(font);
 	TTF_Quit();
 }
 
 void Game::load(SDL_Renderer& renderer)
 {
+	for (int i = 0; i < 8; ++i) {
+		net.push_back(std::make_unique<DrawableRect>(
+			Vector2(static_cast<float>(SCREEN_WIDTH / 2 - NET_WIDTH / 2), static_cast<float>(i * (NET_HEIGHT + NET_SPACE))),
+			NET_WIDTH,
+			NET_HEIGHT, 
+			Color(), 
+			renderer
+		));
+	}
 	left_paddle = std::make_shared<Paddle>(Vector2(0, 200), Vector2(20, 100), renderer, true);
 	right_paddle = std::make_shared<Paddle>(OPPONENT_START, Vector2(20, 100), renderer, false);
-	font = TTF_OpenFont("assets/arial.ttf", 24);
+	font = TTF_OpenFont("assets/arial.ttf", 12);
 
 	ball = Ball(BALL_START, BALL_SPEED, renderer, left_paddle, right_paddle);
 
@@ -32,6 +42,8 @@ void Game::load(SDL_Renderer& renderer)
 	victory_text = Text(Vector2(250, 150), "", font, 200, 50, Color(), renderer);
 	restart_text = Text(Vector2(200, 220), "", font, 300, 50, Color(), renderer);
 	restart_text.s_text("Click to restart game", font);
+
+
 	restart();
 }
 
@@ -78,6 +90,10 @@ void Game::draw(SDL_Renderer& renderer)
 	SDL_RenderClear(&renderer);
 
 	if (outcome == 0) {
+		for (auto it = net.begin(); it != net.end(); ++it)
+		{
+			it->get()->draw(renderer);
+		}
 		left_paddle->draw(renderer);
 		right_paddle->draw(renderer);
 		ball.draw(renderer);
