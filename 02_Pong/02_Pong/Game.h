@@ -32,6 +32,11 @@ private:
 	Text right_score_text;
 	Text victory_text;
 	Text restart_text;
+
+#if _DEBUG
+	Text fps;
+#endif
+
 	TTF_Font* font;
 
 	/*

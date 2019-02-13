@@ -16,7 +16,7 @@ public:
 	virtual ~Text();
 
 	void draw(SDL_Renderer& renderer);
-	void s_text(const std::string& text_, TTF_Font* font);
+	void set_text(const std::string& text_, TTF_Font* font);
 
 private:
 	Rect rect;

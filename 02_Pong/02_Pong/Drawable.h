@@ -8,7 +8,7 @@ public:
 	Drawable(const Vector2& position_);
 	virtual ~Drawable();
 
-	void s_position(const Vector2& position_);
+	void set_position(const Vector2& position_);
 	virtual void draw(SDL_Renderer& renderer_) = 0;
 
 protected:

@@ -16,7 +16,7 @@ public:
 	void update(float dt_);
 	void draw(SDL_Renderer& renderer_);
 
-	void s_speed(const Vector2& speed_);
+	void set_speed(const Vector2& speed_);
 
 private:
 	DrawableCircle graphics;

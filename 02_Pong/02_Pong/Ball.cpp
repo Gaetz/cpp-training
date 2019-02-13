@@ -17,56 +17,56 @@ Ball::~Ball()
 
 void Ball::update(float dt)
 {
-	int radius = graphics._radius();
+	int radius = graphics.get_radius();
 	position += (speed * dt);
-	graphics.s_position(position);
-	right_paddle->s_ball_y(position._y());
+	graphics.set_position(position);
+	right_paddle->set_ball_y(position.get_y());
 	// Bounces
 	// - Out of screen
-	if (position._y() < 0) {
+	if (position.get_y() < 0) {
 		v_bounce();
-		position.s_y(0);
+		position.set_y(0);
 	}
-	else if (position._y() + radius > SCREEN_HEIGHT) {
+	else if (position.get_y() + radius > SCREEN_HEIGHT) {
 		v_bounce();
-		position.s_y(static_cast<float>(SCREEN_HEIGHT - radius));
+		position.set_y(static_cast<float>(SCREEN_HEIGHT - radius));
 	}
 	// On paddles
-	if (position._x() <= left_paddle->_width() + radius) {
-		float leftPaddleY = left_paddle->_position()._y();
-		if (position._y() >= leftPaddleY &&
-			position._y() <= leftPaddleY + left_paddle->_height())
+	if (position.get_x() <= left_paddle->get_width() + radius) {
+		float leftPaddleY = left_paddle->get_position().get_y();
+		if (position.get_y() >= leftPaddleY &&
+			position.get_y() <= leftPaddleY + left_paddle->get_height())
 		{
 			h_bounce(true);
-			position.s_x(static_cast<float>(left_paddle->_width() + radius));
+			position.set_x(static_cast<float>(left_paddle->get_width() + radius));
 		}
 	}
-	if (position._x() >= right_paddle->_position()._x() - radius) {
-		float rightPaddleY = right_paddle->_position()._y();
-		if (position._y() >= rightPaddleY &&
-			position._y() <= rightPaddleY + right_paddle->_height())
+	if (position.get_x() >= right_paddle->get_position().get_x() - radius) {
+		float rightPaddleY = right_paddle->get_position().get_y();
+		if (position.get_y() >= rightPaddleY &&
+			position.get_y() <= rightPaddleY + right_paddle->get_height())
 		{
 			h_bounce(false);
-			position.s_x(static_cast<float>(right_paddle->_position()._x() - radius));
+			position.set_x(static_cast<float>(right_paddle->get_position().get_x() - radius));
 		}
 	}
 }
 
 void Ball::v_bounce()
 {
-	speed.s_y(-speed._y());
+	speed.set_y(-speed.get_y());
 }
 
 void Ball::h_bounce(bool on_player)
 {
-	speed.s_x(-speed._x());
+	speed.set_x(-speed.get_x());
 	if (on_player) {
-		float left_paddle_center = left_paddle->_position()._y() + left_paddle->_height() / 2;
-		speed.s_y((position._y() - left_paddle_center) / left_paddle->_height() / 2 * BALL_SPEED._y() * PADDLE_BOUNCE_MULT);
+		float left_paddle_center = left_paddle->get_position().get_y() + left_paddle->get_height() / 2;
+		speed.set_y((position.get_y() - left_paddle_center) / left_paddle->get_height() / 2 * BALL_SPEED.get_y() * PADDLE_BOUNCE_MULT);
 	}
 	else {
-		float right_paddle_center = right_paddle->_position()._y() + right_paddle->_height() / 2;
-		speed.s_y((position._y() - right_paddle_center) / right_paddle->_height() / 2 * BALL_SPEED._y() * PADDLE_BOUNCE_MULT);
+		float right_paddle_center = right_paddle->get_position().get_y() + right_paddle->get_height() / 2;
+		speed.set_y((position.get_y() - right_paddle_center) / right_paddle->get_height() / 2 * BALL_SPEED.get_y() * PADDLE_BOUNCE_MULT);
 	}
 }
 
@@ -74,8 +74,8 @@ void Ball::draw(SDL_Renderer& renderer) {
 	graphics.draw(renderer);
 }
 
-void Ball::s_speed(const Vector2 & speed_)
+void Ball::set_speed(const Vector2 & speed_)
 {
-	speed.s_x(speed_._x());
-	speed.s_y(speed_._y());
+	speed.set_x(speed_.get_x());
+	speed.set_y(speed_.get_y());
 }

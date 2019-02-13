@@ -18,7 +18,7 @@ bool quit = false;
 
 // Delta time
 const int FPS = 60;
-const int frame_delay = 1000 / FPS;
+const float frame_delay = 1000 / FPS;
 int frame_start;
 int last_frame = 0;
 int dt;
@@ -53,9 +53,9 @@ int main(int argc, char* args[])
 
 		// Delay frame if game runs too fast
 		frame_time = SDL_GetTicks() - frame_start;
-		if (frame_time < frame_delay) {
-			SDL_Delay(frame_delay - frame_time);
-		}
+		//if (frame_time < frame_delay) {
+		//	SDL_Delay(frame_delay - frame_time);
+		//}
 	}
 
 	// Close

@@ -19,9 +19,9 @@ void DrawableCircle::draw(SDL_Renderer & renderer)
 	for (double dy = 1; dy <= radius; dy += 1.0)
 	{
 		double dx = floor(sqrt((2.0 * radius * dy) - (dy * dy)));
-		float cx = position._x();
+		float cx = position.get_x();
 		double x = cx - dx;
-		float cy = position._y();
+		float cy = position.get_y();
 		SDL_SetRenderDrawColor(&renderer, color.r, color.g, color.b, color.a);
 		SDL_RenderDrawLine(&renderer, static_cast<int>(cx - dx), static_cast<int>(cy + dy - radius), static_cast<int>(cx + dx), static_cast<int>(cy + dy - radius));
 		SDL_RenderDrawLine(&renderer, static_cast<int>(cx - dx), static_cast<int>(cy - dy + radius), static_cast<int>(cx + dx), static_cast<int>(cy - dy + radius));
@@ -29,7 +29,7 @@ void DrawableCircle::draw(SDL_Renderer & renderer)
 	}
 }
 
-int DrawableCircle::_radius() const
+int DrawableCircle::get_radius() const
 {
 	return radius;
 }

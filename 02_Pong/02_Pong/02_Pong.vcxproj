@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Rufflerim\Lab\SDL\SDL2_2.0.9\include;D:\Rufflerim\Lab\SDL\SDL2_image-2.0.4\include;D:\Rufflerim\Lab\SDL\SDL2_mixer-2.0.4;D:\Rufflerim\Lab\SDL\SDL2_ttf-2.0.14\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Rufflerim\Lab\SDL\SDL2_2.0.9\lib\x64;D:\Rufflerim\Lab\SDL\SDL2_image-2.0.4\lib\x64;D:\Rufflerim\Lab\SDL\SDL2_mixer-2.0.4\lib\x64;D:\Rufflerim\Lab\SDL\SDL2_ttf-2.0.14\lib\x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Libs\SDL\SDL2-2.0.9\include;C:\Libs\SDL\SDL2_image-2.0.4\include;C:\Libs\SDL\SDL2_mixer-2.0.4;C:\Libs\SDL\SDL2_ttf-2.0.15\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Libs\SDL\SDL2-2.0.9\lib\x64;C:\Libs\SDL\SDL2_image-2.0.4\lib\x64;C:\Libs\SDL\SDL2_mixer-2.0.4\lib\x64;C:\Libs\SDL\SDL2_ttf-2.0.15\lib\x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\ArtFx\Cours\C++\SDL\SDL_2.0.9\include;C:\ArtFx\Cours\C++\SDL\SDL2_image-2.0.4\include;C:\ArtFx\Cours\C++\SDL\SDL2_mixer-2.0.4;C:\ArtFx\Cours\C++\SDL\SDL2_ttf-2.0.14\include;$(IncludePath)</IncludePath>

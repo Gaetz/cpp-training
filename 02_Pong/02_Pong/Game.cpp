@@ -41,8 +41,11 @@ void Game::load(SDL_Renderer& renderer)
 	right_score_text = Text(Vector2(SCREEN_WIDTH - 100, 50), right_score_string, font, 60, 60, text_color, renderer);
 	victory_text = Text(Vector2(250, 150), "", font, 200, 50, Color(), renderer);
 	restart_text = Text(Vector2(200, 220), "", font, 300, 50, Color(), renderer);
-	restart_text.s_text("Click to restart game", font);
+	restart_text.set_text("Click to restart game", font);
 
+#if _DEBUG
+	fps = Text(Vector2(20, 420), "", font, 300, 50, Color(), renderer);
+#endif
 
 	restart();
 }
@@ -55,22 +58,22 @@ void Game::update(float dt)
 		right_paddle->update(dt);
 
 		ball.update(dt);
-		if (ball._position()._x() < 0)
+		if (ball.get_position().get_x() < 0)
 		{
-			right_score_text.s_text(std::to_string(++right_score), font);
+			right_score_text.set_text(std::to_string(++right_score), font);
 			if (right_score >= MAX_SCORE) {
-				victory_text.s_text("AI wins", font);
+				victory_text.set_text("AI wins", font);
 				outcome = 2;
 			}
 			else {
 				reset();
 			}
 		}
-		else if (ball._position()._x() > SCREEN_WIDTH)
+		else if (ball.get_position().get_x() > SCREEN_WIDTH)
 		{
-			left_score_text.s_text(std::to_string(++left_score), font);
+			left_score_text.set_text(std::to_string(++left_score), font);
 			if (left_score >= MAX_SCORE) {
-				victory_text.s_text("Player wins", font);
+				victory_text.set_text("Player wins", font);
 				outcome = 1;
 			}
 			else {
@@ -83,6 +86,11 @@ void Game::update(float dt)
 			restart();
 		}
 	}
+
+#if _DEBUG
+	if(dt > 0.02)
+		fps.set_text(std::to_string(dt), font);
+#endif
 }
 
 void Game::draw(SDL_Renderer& renderer)
@@ -104,13 +112,18 @@ void Game::draw(SDL_Renderer& renderer)
 		victory_text.draw(renderer);
 		restart_text.draw(renderer);
 	}
+
+#if _DEBUG
+	fps.draw(renderer);
+#endif
+
 	SDL_RenderPresent(&renderer);
 }
 
 void Game::reset() 
 {
-	ball.s_position(BALL_START);
-	ball.s_speed(BALL_SPEED);
+	ball.set_position(BALL_START);
+	ball.set_speed(BALL_SPEED);
 }
 
 void Game::restart()
@@ -119,8 +132,8 @@ void Game::restart()
 	right_score = 0;
 	std::string left_score_string = std::to_string(left_score);
 	std::string right_score_string = std::to_string(right_score);
-	left_score_text.s_text(left_score_string, font);
-	right_score_text.s_text(right_score_string, font);
+	left_score_text.set_text(left_score_string, font);
+	right_score_text.set_text(right_score_string, font);
 	reset();
 	outcome = 0;
 }

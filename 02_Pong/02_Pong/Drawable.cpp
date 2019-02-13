@@ -13,8 +13,8 @@ Drawable::~Drawable()
 {
 }
 
-void Drawable::s_position(const Vector2& position_)
+void Drawable::set_position(const Vector2& position_)
 {
-	position.s_x(position_._x());
-	position.s_y(position_._y());
+	position.set_x(position_.get_x());
+	position.set_y(position_.get_y());
 }

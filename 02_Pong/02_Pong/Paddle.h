@@ -13,9 +13,9 @@ public:
 	void update(float dt);
 	void draw(SDL_Renderer & renderer_);
 
-	int _width() const;
-	int _height() const;
-	void s_ball_y(const float y_);
+	int get_width() const;
+	int get_height() const;
+	void set_ball_y(const float y_);
 
 private:
 	DrawableRect graphics;

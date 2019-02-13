@@ -12,21 +12,21 @@ public:
 
 	std::unique_ptr<SDL_Rect> to_sdl_rect(Vector2 position);
 
-	int _x() const;
+	int get_x() const;
 	int& r_x();
-	void s_x(const int x);
+	void set_x(const int x);
 
-	int _y() const;
+	int get_y() const;
 	int& r_y();
-	void s_y(const int y);
+	void set_y(const int y);
 
-	int _w() const;
+	int get_w() const;
 	int& r_w();
-	void s_w(const int w);
+	void set_w(const int w);
 
-	int _h() const;
+	int get_h() const;
 	int& r_h();
-	void s_h(const int h);
+	void set_h(const int h);
 
 private:
 	int x;

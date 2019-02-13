@@ -15,7 +15,7 @@ GameObject::~GameObject()
 {
 }
 
-Vector2 GameObject::_position() const
+Vector2 GameObject::get_position() const
 {
 	return position;
 }
@@ -25,8 +25,8 @@ Vector2 & GameObject::r_position()
 	return position;
 }
 
-void GameObject::s_position(const Vector2 & v)
+void GameObject::set_position(const Vector2 & v)
 {
-	position.s_x(v._x());
-	position.s_y(v._y());
+	position.set_x(v.get_x());
+	position.set_y(v.get_y());
 }

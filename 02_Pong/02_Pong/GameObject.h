@@ -9,9 +9,9 @@ public:
 	GameObject(const Vector2& position_);
 	virtual ~GameObject();
 
-	Vector2 _position() const;
+	Vector2 get_position() const;
 	Vector2& r_position();
-	void s_position(const Vector2& v);
+	void set_position(const Vector2& v);
 
 	virtual void update(float dt) = 0;
 	virtual void draw(SDL_Renderer& renderer_) = 0;

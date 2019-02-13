@@ -21,7 +21,7 @@ void Text::draw(SDL_Renderer & renderer)
 	SDL_RenderCopy(&renderer, texture, nullptr, rect.to_sdl_rect(position).get());
 }
 
-void Text::s_text(const std::string & text_, TTF_Font* font_)
+void Text::set_text(const std::string & text_, TTF_Font* font_)
 {
 	if (texture != nullptr) {
 		SDL_DestroyTexture(texture);
