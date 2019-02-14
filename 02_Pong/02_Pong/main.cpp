@@ -17,13 +17,12 @@ SDL_Renderer* renderer = nullptr;
 bool quit = false;
 
 // Delta time
-const int FPS = 60;
-const float frame_delay = 1000 / FPS;
-int frame_start;
+const float FPS = 60.0f;
+const float frame_delay = 1000.0f / FPS;
+int frame_start = 0;
 int last_frame = 0;
-int dt;
-int frame_time;
-
+int frame_time = 0;
+float dt = 0.0f;
 
 int main(int argc, char* args[])
 {
@@ -39,7 +38,6 @@ int main(int argc, char* args[])
 	Game game;
 	game.load(*renderer);
 
-	float dt = 0;
 	// Loop
 	while (!quit) {
 		// Delta time
@@ -53,9 +51,9 @@ int main(int argc, char* args[])
 
 		// Delay frame if game runs too fast
 		frame_time = SDL_GetTicks() - frame_start;
-		//if (frame_time < frame_delay) {
-		//	SDL_Delay(frame_delay - frame_time);
-		//}
+		if (frame_time < frame_delay) {
+			SDL_Delay(frame_delay - frame_time);
+		}
 	}
 
 	// Close

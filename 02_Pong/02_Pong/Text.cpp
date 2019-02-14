@@ -18,7 +18,7 @@ Text::~Text()
 
 void Text::draw(SDL_Renderer & renderer)
 {
-	SDL_RenderCopy(&renderer, texture, nullptr, rect.to_sdl_rect(position).get());
+	SDL_RenderCopy(&renderer, texture, nullptr, rect.to_sdl_rect(position));
 }
 
 void Text::set_text(const std::string & text_, TTF_Font* font_)

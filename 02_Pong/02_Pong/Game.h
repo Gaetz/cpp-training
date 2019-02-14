@@ -7,6 +7,7 @@
 #include "Paddle.h"
 #include "Ball.h"
 #include "Text.h"
+#include "Input.h"
 
 class Game
 {

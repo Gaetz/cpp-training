@@ -1,5 +1,4 @@
 #include "Paddle.h"
-#include "Input.h"
 #include <algorithm>
 #include "Constants.h"
 
@@ -22,7 +21,7 @@ void Paddle::update(float dt)
 {
 	if (is_player) {
 		float y = Input::mouse_pos().get_y() - height / 2;
-		y = std::clamp<float>(y, 0, static_cast<float>(SCREEN_HEIGHT - height));
+		y = std::clamp<float>(y, 0, SCREEN_HEIGHT - height);
 		position.set_y(y);
 	}
 	else {

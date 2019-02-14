@@ -58,6 +58,7 @@ void Game::update(float dt)
 		right_paddle->update(dt);
 
 		ball.update(dt);
+		
 		if (ball.get_position().get_x() < 0)
 		{
 			right_score_text.set_text(std::to_string(++right_score), font);

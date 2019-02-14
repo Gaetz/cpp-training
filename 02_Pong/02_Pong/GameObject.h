@@ -1,6 +1,7 @@
 #pragma once
 #include <SDL.h>
 #include "Vector2.h"
+#include "Input.h"
 
 class GameObject
 {
@@ -10,7 +11,6 @@ public:
 	virtual ~GameObject();
 
 	Vector2 get_position() const;
-	Vector2& r_position();
 	void set_position(const Vector2& v);
 
 	virtual void update(float dt) = 0;

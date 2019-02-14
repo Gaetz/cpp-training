@@ -6,6 +6,7 @@ Rect::Rect()
 	y = 0;
 	w = 1;
 	h = 1;
+	rect = SDL_Rect();
 }
 
 Rect::Rect(int x_, int y_, int w_, int h_)
@@ -14,20 +15,20 @@ Rect::Rect(int x_, int y_, int w_, int h_)
 	y = y_;
 	w = w_;
 	h = h_;
+	rect = SDL_Rect();
 }
 
 Rect::~Rect()
 {
 }
 
-std::unique_ptr<SDL_Rect> Rect::to_sdl_rect(Vector2 position)
+const SDL_Rect* Rect::to_sdl_rect(Vector2 position)
 {
-	std::unique_ptr<SDL_Rect> rect = std::make_unique<SDL_Rect>();
-	rect->x = position.get_x() + x;
-	rect->y = position.get_y() + y;
-	rect->w = w;
-	rect->h = h;
-	return rect;
+	rect.x = position.get_x() + x;
+	rect.y = position.get_y() + y;
+	rect.w = w;
+	rect.h = h;
+	return &rect;
 }
 
 int Rect::get_x() const

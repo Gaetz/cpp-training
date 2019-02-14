@@ -10,7 +10,7 @@ public:
 	Rect(int x, int y, int w, int h);
 	~Rect();
 
-	std::unique_ptr<SDL_Rect> to_sdl_rect(Vector2 position);
+	const SDL_Rect* to_sdl_rect(Vector2 position);
 
 	int get_x() const;
 	int& r_x();
@@ -33,5 +33,6 @@ private:
 	int y;
 	int w;
 	int h;
+	SDL_Rect rect;
 };
 
