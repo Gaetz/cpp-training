@@ -1,0 +1,8 @@
+Name Player
+Spritesheet panda.sheet
+Hp 5
+BoundingBox 20 26
+DamageBox 5 0 20 26
+Speed 1024 128
+JumpVelocity 250
+MaxVelocity 400 1024

@@ -1,0 +1,10 @@
+src
+src/core
+src/display
+src/entities
+src/io
+src/states
+src/utils
+src/ecs
+assets/data/entities
+assets/img

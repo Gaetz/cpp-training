@@ -1,0 +1,8 @@
+Name Mushroom
+Spritesheet mushroom.sheet
+Hp 2
+BoundingBox 40 40
+DamageBox 20 0 40 20
+Speed 512 64
+JumpVelocity 128
+MaxVelocity 128 1024

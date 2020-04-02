@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{5941C3D6-DB82-49EC-A5BB-AC9BC71291FB}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectName>ActionRpg</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>D:\Rufflerim\Lab\SFML\SFML-2.4.2-x86\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>D:\Rufflerim\Lab\SFML\SFML-2.4.2-x86\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>shlwapi.lib;sfml-main-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-window-d.lib;sfml-system-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>SFML_STATIC;WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>D:\Rufflerim\Lab\SFML\SFML-2.4.2-x86\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>D:\Rufflerim\Lab\SFML\SFML-2.4.2-x86\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>shlwapi.lib;sfml-main.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;gdi32.lib;winmm.lib;jpeg.lib;freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Rufflerim\Lab\SFML\SFML-2.4.2-x64\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>D:\Rufflerim\Lab\SFML\SFML-2.4.2-x64\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>shlwapi.lib;sfml-main-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;sfml-window-d.lib;sfml-system-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Rufflerim\Lab\SFML\SFML-2.4.2-x64\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>SFML_STATIC;</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>D:\Rufflerim\Lab\SFML\SFML-2.4.2-x64\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>shlwapi.lib;sfml-main.lib;sfml-graphics-s.lib;sfml-window-s.lib;sfml-system-s.lib;gdi32.lib;winmm.lib;jpeg.lib;freetype.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\core\entity_manager.cpp" />
+    <ClCompile Include="src\core\event_manager.cpp" />
+    <ClCompile Include="src\core\game.cpp" />
+    <ClCompile Include="src\core\main.cpp" />
+    <ClCompile Include="src\core\state_manager.cpp" />
+    <ClCompile Include="src\core\system_manager.cpp" />
+    <ClCompile Include="src\core\window.cpp" />
+    <ClCompile Include="src\display\anim_base.cpp" />
+    <ClCompile Include="src\display\anim_directional.cpp" />
+    <ClCompile Include="src\display\map.cpp" />
+    <ClCompile Include="src\display\sprite_sheet.cpp" />
+    <ClCompile Include="src\ecs\s_base.cpp" />
+    <ClCompile Include="src\ecs\s_control.cpp" />
+    <ClCompile Include="src\ecs\s_movement.cpp" />
+    <ClCompile Include="src\ecs\s_renderer.cpp" />
+    <ClCompile Include="src\ecs\s_sheet_animation.cpp" />
+    <ClCompile Include="src\ecs\s_state.cpp" />
+    <ClCompile Include="src\entities\Character.cpp" />
+    <ClCompile Include="src\entities\Enemy.cpp" />
+    <ClCompile Include="src\entities\EntityBase.cpp" />
+    <ClCompile Include="src\entities\Player.cpp" />
+    <ClCompile Include="src\io\asset_texture.cpp" />
+    <ClCompile Include="src\states\state_game.cpp" />
+    <ClCompile Include="src\states\state_intro.cpp" />
+    <ClCompile Include="src\states\state_mainmenu.cpp" />
+    <ClCompile Include="src\states\state_paused.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\core\asset_manager.h" />
+    <ClInclude Include="src\core\entity_manager.h" />
+    <ClInclude Include="src\core\event_manager.h" />
+    <ClInclude Include="src\core\event_queue.h" />
+    <ClInclude Include="src\core\game.h" />
+    <ClInclude Include="src\core\messaging\communicator.h" />
+    <ClInclude Include="src\core\messaging\message.h" />
+    <ClInclude Include="src\core\messaging\message_handler.h" />
+    <ClInclude Include="src\core\messaging\observer.h" />
+    <ClInclude Include="src\core\shared_context.h" />
+    <ClInclude Include="src\core\state_manager.h" />
+    <ClInclude Include="src\core\system_manager.h" />
+    <ClInclude Include="src\core\window.h" />
+    <ClInclude Include="src\display\anim_base.h" />
+    <ClInclude Include="src\display\anim_directional.h" />
+    <ClInclude Include="src\display\directions.h" />
+    <ClInclude Include="src\display\map.h" />
+    <ClInclude Include="src\display\sprite_sheet.h" />
+    <ClInclude Include="src\display\tile_info.h" />
+    <ClInclude Include="src\ecs\c_base.h" />
+    <ClInclude Include="src\ecs\c_collidable.h" />
+    <ClInclude Include="src\ecs\c_controller.h" />
+    <ClInclude Include="src\ecs\c_drawable.h" />
+    <ClInclude Include="src\ecs\c_movable.h" />
+    <ClInclude Include="src\ecs\c_position.h" />
+    <ClInclude Include="src\ecs\c_spritesheet.h" />
+    <ClInclude Include="src\ecs\c_state.h" />
+    <ClInclude Include="src\ecs\ecs_types.h" />
+    <ClInclude Include="src\ecs\entity_events.h" />
+    <ClInclude Include="src\ecs\entity_messages.h" />
+    <ClInclude Include="src\ecs\s_base.h" />
+    <ClInclude Include="src\ecs\s_control.h" />
+    <ClInclude Include="src\ecs\s_movement.h" />
+    <ClInclude Include="src\ecs\s_renderer.h" />
+    <ClInclude Include="src\ecs\s_sheet_animation.h" />
+    <ClInclude Include="src\ecs\s_state.h" />
+    <ClInclude Include="src\entities\Character.h" />
+    <ClInclude Include="src\entities\Enemy.h" />
+    <ClInclude Include="src\entities\EntityBase.h" />
+    <ClInclude Include="src\entities\Player.h" />
+    <ClInclude Include="src\io\asset_texture.h" />
+    <ClInclude Include="src\states\state_base.h" />
+    <ClInclude Include="src\states\state_game.h" />
+    <ClInclude Include="src\states\state_intro.h" />
+    <ClInclude Include="src\states\state_mainmenu.h" />
+    <ClInclude Include="src\states\state_paused.h" />
+    <ClInclude Include="src\utils\bitmask.h" />
+    <ClInclude Include="src\utils\debug_overlay.h" />
+    <ClInclude Include="src\utils\more_hash.h" />
+    <ClInclude Include="src\utils\utilities.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="geex.includes" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

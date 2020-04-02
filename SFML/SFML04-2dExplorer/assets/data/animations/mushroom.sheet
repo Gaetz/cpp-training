@@ -1,0 +1,11 @@
+Texture MushroomSprite
+Size 40 40
+Scale 1.0 1.0
+|Type|Name|StartFrame|EndFrame|Row|FrameTime|FrameActionStart|End|
+AnimationType Directional
+Animation Walk 0 3 0 0.1 -1 -1
+Animation Idle 0 1 2 0.5 -1 -1
+Animation Jump 0 1 4 0.2 -1 -1
+Animation Attack 0 3 6 0.2 -1 -1
+Animation Hurt 0 2 8 0.2 -1 -1
+Animation Death 0 3 10 0.4 -1 -1

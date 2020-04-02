@@ -1,0 +1,39 @@
+env = Environment(
+    CXX = 'clang++',
+    LIBS = ['sfml-window','sfml-system','sfml-graphics'],
+    LIBPATH = ['/usr/lib', '/usr/local/lib'],
+    CXXFLAGS = "-std=c++11 -g")
+
+env.Program('../Geex.exe', [
+    'core/main.cpp',
+    'core/entity_manager.cpp',
+    'core/event_manager.cpp',
+    'core/game.cpp',
+    'core/state_manager.cpp',
+    'core/system_manager.cpp',
+    'core/window.cpp',
+
+    'display/anim_base.cpp',
+    'display/anim_directional.cpp',
+    'display/map.cpp',
+    'display/sprite_sheet.cpp',
+
+    'ecs/s_base.cpp',
+    'ecs/s_renderer.cpp',
+    'ecs/s_movement.cpp',
+    'ecs/s_state.cpp',
+    'ecs/s_control.cpp',
+    'ecs/s_sheet_animation.cpp',
+
+    'entities/Character.cpp',
+    'entities/Enemy.cpp',
+    'entities/EntityBase.cpp',
+    'entities/Player.cpp',
+
+    'io/asset_texture.cpp',
+
+    'states/state_game.cpp',
+    'states/state_intro.cpp',
+    'states/state_mainmenu.cpp',
+    'states/state_paused.cpp'
+])

@@ -1,0 +1,6 @@
+env = Environment(
+    CXX = 'clang++',
+    LIBS = ['sfml-window','sfml-system','sfml-graphics'],
+    LIBPATH = ['/usr/lib', '/usr/local/lib'],
+    CXXFLAGS="-std=c++11 -g")
+env.Program('2dExplorer.exe', Glob('*.cpp'))
